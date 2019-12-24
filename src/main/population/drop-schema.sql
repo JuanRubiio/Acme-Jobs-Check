@@ -55,6 +55,10 @@
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
 
+    alter table `etiqueta1` 
+       drop 
+       foreign key `FKgj99ufrs3pixq1bgtvyyn2co`;
+
     alter table `job` 
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
@@ -130,6 +134,8 @@
     drop table if exists `duty`;
 
     drop table if exists `employer`;
+
+    drop table if exists `etiqueta1`;
 
     drop table if exists `garcia_bulletin`;
 
