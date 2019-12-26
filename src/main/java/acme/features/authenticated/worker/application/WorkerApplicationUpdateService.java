@@ -1,42 +1,48 @@
 
-package acme.features.authenticated.provider.employer.application;
+package acme.features.authenticated.worker.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-import acme.entities.job.Job;
-import acme.entities.roles.Employer;
+import acme.entities.roles.Worker;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EmployerApplicationShowService implements AbstractShowService<Employer, Application> {
+public class WorkerApplicationUpdateService implements AbstractUpdateService<Worker, Application> {
 
 	@Autowired
-	EmployerApplicationRepository repository;
+	WorkerApplicationRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
-		assert request != null;
 		boolean result;
 		int appId;
 		Application app;
-		Job job;
-		Employer employer;
+		Worker apwor;
 		Principal principal;
 
 		appId = request.getModel().getInteger("id");
 		app = this.repository.findOneById(appId);
-		job = app.getJob();
-		employer = job.getEmployer();
+		apwor = app.getWorker();
 		principal = request.getPrincipal();
 
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = apwor.getUserAccount().getId() == principal.getAccountId();
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<Application> request, final Application entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -47,20 +53,34 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		assert model != null;
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker");
+
 	}
 
 	@Override
 	public Application findOne(final Request<Application> request) {
-
 		assert request != null;
 
 		Application result;
 		int id;
-
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
+	public void update(final Request<Application> request, final Application entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.save(entity);
 	}
 
 }

@@ -15,3 +15,7 @@ authenticated.worker.application.list.label.moment = Fecha
 authenticated.worker.application.list.label.status = Estado
 authenticated.worker.application.list.label.qualifications = Calificaciones
 authenticated.worker.application.list.button.return = Volver
+
+
+authenticated.worker.application.list.label.answerWorker = Respuesta del trabajador
+authenticated.worker.application.list.label.rejectedMessage = Mensaje de rechazo

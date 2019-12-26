@@ -56,7 +56,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate");
+		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker");
 	}
 
 	@Override

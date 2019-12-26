@@ -3,6 +3,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
 <acme:form readonly="true"> 
+	<acme:form-textbox code="administrator.ratioJobsEtiqueta1" path="ratioJobsEtiqueta1"/>
+	
 	<acme:form-textbox code="administrator.totalNumberCompanyRecords" path="totalNumberCompanyRecords"/>
 	<acme:form-textbox code="administrator.totalNumberAnnonuncements" path="totalNumberAnnonuncements"/>
 	<acme:form-textbox code="administrator.totalNumberInvestorRecords" path="totalNumberInvestorRecords"/>

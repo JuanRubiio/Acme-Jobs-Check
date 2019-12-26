@@ -38,6 +38,9 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 	@Autowired
 	private WorkerApplicationCreateService	createService;
 
+	@Autowired
+	private WorkerApplicationUpdateService	updateService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -46,6 +49,7 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
 	}
 

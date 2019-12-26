@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.job.Job;
@@ -26,6 +27,7 @@ public class Etiqueta1 extends DomainEntity {
 
 	//MAX=XXXX de momento he puesto 100 por poner un número
 	@NotBlank
+	@Length(min = 0, max = 100)
 	private String				text;
 
 	@URL

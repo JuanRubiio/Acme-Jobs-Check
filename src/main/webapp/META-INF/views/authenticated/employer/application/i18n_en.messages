@@ -18,4 +18,5 @@ authenticated.employer.application.list.label.status = Status
 authenticated.employer.application.list.label.qualifications = Qualifications
 authenticated.employer.application.list.button.return = Return
 
+authenticated.employer.application.form.label.answerWorker = Worker Answer
 
