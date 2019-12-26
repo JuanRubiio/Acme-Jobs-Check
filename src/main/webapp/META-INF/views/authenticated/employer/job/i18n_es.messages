@@ -10,6 +10,10 @@ authenticated.employer.job.form.button.return = Volver
 authenticated.employer.job.form.label.percentage = Percentage
 authenticated.employer.job.form.label.active.duty = Servicios
 authenticated.employer.job.form.label.application = Aplicaciones
+authenticated.employer.job.form.label.active.etiqueta1 = Etiqueta1
+authenticated.employer.job.form.label.create.etiqueta1 = Crear Etiqueta1
+
+
 employer.job.duplicatedReference = Referencia duplicada
 employer.job.finalmode = Trabajo en modo final
 employer.job.applications =  Se puede eliminar un trabajo siempre que ningún trabajador lo haya solicitado

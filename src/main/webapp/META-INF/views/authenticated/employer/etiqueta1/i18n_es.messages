@@ -1,0 +1,6 @@
+authenticated.employer.etiqueta1.form.label.text = Texto:
+authenticated.employer.etiqueta1.form.label.atributoEtiqueta1 = AtributoEtiqueta1:
+authenticated.employer.etiqueta1.form.button.return = Volver
+authenticated.employer.etiqueta1.form.button.update = Editar
+authenticated.employer.etiqueta1.form.button.delete = Borrar
+authenticated.employer.etiqueta1.form.button.create = Crear

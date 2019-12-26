@@ -64,6 +64,12 @@ public class Job extends DomainEntity {
 	@NotBlank
 	private String				description;
 
+	//CHECK
+
+	private String				confirmation;
+
+	//-----
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
