@@ -38,6 +38,7 @@
 	<acme:form-textbox code="authenticated.employer.application.form.label.qualifications" path="qualifications" readonly="true"/>	
 	
 	<acme:form-textbox code="authenticated.employer.application.form.label.messageRejected" path="messageRejected"/>
+	<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
 	
 	
 	<acme:form-hidden path="id"/>

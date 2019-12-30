@@ -31,7 +31,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "totalNumberCompanyRecords", "totalNumberAnnonuncements", "totalNumberInvestorRecords", "minRewardActiveRequest", "maxRewardActiveRequest", "avgRewardActiveRequest", "desvRewardActiveRequest", "minRewardActiveOffer",
-			"maxRewardActiveOffer", "avgRewardActiveOffer", "desvRewardActiveOffer", "avgNumberJobOEmployer", "avgNumberApplEmployer", "avgNumberApplWorker");
+			"maxRewardActiveOffer", "avgRewardActiveOffer", "desvRewardActiveOffer", "avgNumberJobOEmployer", "avgNumberApplEmployer", "avgNumberApplWorker", "ratioJobsEtiqueta1");
 
 	}
 
@@ -54,6 +54,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double avgNumberJobOEmployer = this.repository.getavgNumberJobOEmployer();
 		Double avgNumberApplEmployer = this.repository.getavgNumberApplEmployer();
 		Double avgNumberApplWorker = this.repository.getavgNumberApplWorker();
+		Double ratioJobsEtiqueta1 = this.repository.getRatioJobsEtiqueta1();
 
 		res.setTotalNumberCompanyRecords(totalNumberCompanyRecords);
 		res.setTotalNumberAnnonuncements(totalNumberAnnouncements);
@@ -69,6 +70,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		res.setAvgNumberJobOEmployer(avgNumberJobOEmployer);
 		res.setAvgNumberApplEmployer(avgNumberApplEmployer);
 		res.setAvgNumberApplWorker(avgNumberApplWorker);
+		res.setRatioJobsEtiqueta1(ratioJobsEtiqueta1);
 
 		return res;
 	}

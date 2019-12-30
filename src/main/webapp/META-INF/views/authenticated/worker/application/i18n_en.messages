@@ -16,3 +16,5 @@ authenticated.worker.application.list.label.moment = Moment
 authenticated.worker.application.list.label.status = Status
 authenticated.worker.application.list.label.qualifications = Qualifications
 
+authenticated.worker.application.list.label.answerWorker = Worker Answer
+authenticated.worker.application.list.label.rejectedMessage = Rejection message
