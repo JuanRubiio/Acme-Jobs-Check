@@ -562,6 +562,7 @@
 		<property name="description" value="Esta es la descripcion del job1"/>
 		<property name="active" value="true"/>
 		<property name="employer" ref="employerEmployer"/>	
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job2" class="acme.entities.job.Job">
@@ -574,6 +575,7 @@
 		<property name="description" value="Esta es la descripcion del job2"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 	<bean id="job3" class="acme.entities.job.Job">
 		<property name="reference" value="EMP1-JOB3"/>
@@ -585,6 +587,7 @@
 		<property name="description" value="Esta es la descripcion del job3"/>
 		<property name="active" value="true"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job4" class="acme.entities.job.Job">
@@ -597,6 +600,7 @@
 		<property name="description" value="Esta es la descripcion del job4"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job5" class="acme.entities.job.Job">
@@ -609,6 +613,7 @@
 		<property name="description" value="Esta es la descripcion del job5"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 	
 	<bean id="auditRecord01" class="acme.entities.auditRecord.AuditRecord">

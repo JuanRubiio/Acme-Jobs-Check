@@ -47,13 +47,17 @@
 	<jstl:if test="${command == 'show'}">
 	<jstl:if test="${!active}">
 	<acme:form-submit code="authenticated.employer.job.form.label.create.duty" action="/employer/duty/create?id=${id}" method="get" />
-	<acme:form-submit code="authenticated.employer.job.form.label.create.etiqueta1" action="/employer/etiqueta1/create?id=${id}" method="get" />
+		<jstl:if test="${ayuda}">
+			<acme:form-submit code="authenticated.employer.job.form.label.create.etiqueta1" action="/employer/etiqueta1/create?id=${id}" method="get" />
+		</jstl:if>
 	</jstl:if>	
-	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/employer/duty/list?id=${id}" method="get"/>
+	<jstl:if test="${active}">
 	<acme:form-submit code="authenticated.employer.job.form.label.application" action="/employer/application/list?id=${id}" method="get"/>
 	<acme:form-submit code="master.menu.anonymous.listAuditRecords" action="/employer/audit-record/list-mine?id=${id}" method="get" />
-	
+	</jstl:if>
+	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/employer/duty/list?id=${id}" method="get"/>
 	<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/employer/etiqueta1/list?id=${id}" method="get"/>
+	
 	
 </jstl:if>	
 </acme:form>

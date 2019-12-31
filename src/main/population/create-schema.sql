@@ -220,6 +220,7 @@
        `id` integer not null,
         `version` integer not null,
         `active` bit,
+        `ayuda` bit,
         `confirmation` varchar(255),
         `deadline` datetime(6),
         `description` varchar(255),

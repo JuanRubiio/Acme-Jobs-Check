@@ -66,6 +66,8 @@ public class Job extends DomainEntity {
 
 	//CHECK
 
+	private Boolean				ayuda;
+
 	private String				confirmation;
 
 	//-----
