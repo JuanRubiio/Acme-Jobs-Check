@@ -10,11 +10,9 @@
 	<acme:form-textbox code="authenticated.worker.application.form.label.statement" path="statement" readonly="${command == 'show'}"/>
 	<acme:form-textbox code="authenticated.worker.application.form.label.skills" path="skills" readonly="${command == 'show'}"/>
 	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command == 'show'}"/>
-	<jstl:if test="${messageRejected!=null && messageRejected!='' && status!='Pending'}">
+	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command == 'show'}"/>
 		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-	
-	
 	</jstl:if>
 	<acme:form-hidden path="id"/>
 	
