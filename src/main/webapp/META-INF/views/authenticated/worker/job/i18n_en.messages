@@ -10,3 +10,4 @@ authenticated.worker.job.form.button.return = Return
 authenticated.worker.job.form.label.active.duty = Duties
 authenticated.worker.job.form.label.application = Applications
 authenticated.employer.job.form.label.create = Application Create For This Job
+authenticated.employer.job.form.label.active.etiqueta1 = Etiqueta1

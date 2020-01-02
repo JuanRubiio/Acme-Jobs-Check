@@ -68,8 +68,6 @@ public class Job extends DomainEntity {
 
 	private Boolean				ayuda;
 
-	private String				confirmation;
-
 	//-----
 
 	@NotNull
