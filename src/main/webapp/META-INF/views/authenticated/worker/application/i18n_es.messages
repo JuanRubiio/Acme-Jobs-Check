@@ -19,3 +19,4 @@ authenticated.worker.application.list.button.return = Volver
 
 authenticated.worker.application.list.label.answerWorker = Respuesta:
 authenticated.worker.application.list.label.rejectedMessage = Mensaje del empresario:
+authenticated.worker.application.list.label.confirmation = Contraseña:

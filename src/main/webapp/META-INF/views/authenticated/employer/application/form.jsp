@@ -38,7 +38,17 @@
 	<acme:form-textbox code="authenticated.employer.application.form.label.qualifications" path="qualifications" readonly="true"/>	
 	
 	<acme:form-textbox code="authenticated.employer.application.form.label.messageRejected" path="messageRejected"/>
-	<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
+	
+	
+		<jstl:if test="${confirmation=='' && status !='Pending'}">	
+		<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
+		</jstl:if>
+		<jstl:if test="${confirmation!='' && confirmation!=null && status !='Pending'}">
+			<acme:form-password code="authenticated.employer.application.form.label.cc" path="cc"/>
+			<jstl:if test="${confirmation==cc}">
+				<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
+			</jstl:if>
+		</jstl:if>
 	
 	
 	<acme:form-hidden path="id"/>
