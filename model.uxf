@@ -586,7 +586,7 @@ Worker
       <x>994</x>
       <y>616</y>
       <w>329</w>
-      <h>126</h>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Job
 --
@@ -596,8 +596,9 @@ Worker
 + deadline: Date {NotNull, TemporalType.TIMESTAMP}
 + salary: Money {NotNull, Valid}
 + link: String {URL}
-+ active: Boolean
++ active: Boolean {}
 + description: String {NotBlank}
++ ayuda: Boolean {}
 + employer: Employer {NotNull, Valid, ManyToOne(optional=false)}
 
 </panel_attributes>
@@ -824,8 +825,8 @@ m2=0..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1162</x>
-      <y>735</y>
+      <x>1288</x>
+      <y>742</y>
       <w>35</w>
       <h>98</h>
     </coordinates>
@@ -920,8 +921,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1169</x>
-      <y>770</y>
+      <x>1260</x>
+      <y>784</y>
       <w>42</w>
       <h>21</h>
     </coordinates>
@@ -1059,7 +1060,7 @@ style=wordwrap</panel_attributes>
       <x>560</x>
       <y>616</y>
       <w>343</w>
-      <h>126</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Aplication
 --
@@ -1071,16 +1072,18 @@ style=wordwrap</panel_attributes>
 + skills: String {NotBlank}
 + qualifications: String {NotBlank} 
 + messageRejected: String {}
++ answerWorker: String {}
++ confirmation: String {}
++ cc: String {}
 + worker: Worker {NotNull, Valid, ManyToOne(optional=false)}
-+ job: Job {NotNull, Valid, ManyToOne(optional=false)}
-</panel_attributes>
++ job: Job {NotNull, Valid, ManyToOne(optional=false)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1029</x>
-      <y>819</y>
+      <x>1155</x>
+      <y>826</y>
       <w>287</w>
       <h>70</h>
     </coordinates>
@@ -1201,6 +1204,50 @@ style=wordwrap</panel_attributes>
       <h>21</h>
     </coordinates>
     <panel_attributes>user
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>875</x>
+      <y>826</y>
+      <w>266</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Etiqueta1
+--
++ text: String {NotBlank,Length(min=1,max=100)}
++ atributoEtiqueta1: String {URL}
++ job: Job {NotNull, Valid, OneToOne(optional=false)}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>742</y>
+      <w>42</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=0..1
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1057</x>
+      <y>777</y>
+      <w>42</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>have
+
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>

@@ -613,7 +613,7 @@
 		<property name="description" value="Esta es la descripcion del job5"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer2"/>
-		<property name="ayuda" value="false"/>
+		<property name="ayuda" value="true"/>
 	</bean> 
 	
 	<bean id="auditRecord01" class="acme.entities.auditRecord.AuditRecord">
@@ -763,6 +763,9 @@
 		<property name="skills" value="ninguna"/>
 		<property name="qualifications" value="7.5"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job4"/>
 	</bean>
@@ -775,8 +778,11 @@
 		<property name="statement" value="i am good worker"/>
 		<property name="skills" value="secretary"/>
 		<property name="qualifications" value="8.75"/>
-		<property name="worker" ref="workerWorker"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
+		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job5"/>
 	</bean>
 	
@@ -789,6 +795,9 @@
 		<property name="skills" value="nothing"/>
 		<property name="qualifications" value="2.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job3"/>
 	</bean>
@@ -802,6 +811,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="6.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -816,6 +828,9 @@
 		<property name="skills" value="1"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -829,6 +844,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -842,6 +860,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -856,6 +877,9 @@
 		<property name="skills" value="5"/>
 		<property name="qualifications" value="8"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -869,6 +893,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="4"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
