@@ -111,7 +111,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 			}
 
 			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-				errors.state(request, false, "confirmation", "the password has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.");
+				errors.state(request, false, "confirmation", "the password must has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.");
 			}
 		}
 	}
