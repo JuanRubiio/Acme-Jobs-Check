@@ -19,5 +19,6 @@ authenticated.employer.application.list.label.qualifications = Calificaciones
 authenticated.employer.application.list.button.return = Volver
 
 authenticated.employer.application.form.label.answerWorker = Respuesta del trabajador
+authenticated.employer.application.form.label.cc = Confirmación
 
 

@@ -10,21 +10,20 @@
 	<acme:form-textbox code="authenticated.worker.application.form.label.statement" path="statement" readonly="${command == 'show'}"/>
 	<acme:form-textbox code="authenticated.worker.application.form.label.skills" path="skills" readonly="${command == 'show'}"/>
 	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command == 'show'}"/>
-	<jstl:if test="${messageRejected!=null && messageRejected!='' && status=='Rejected'}">
+	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command == 'show'}"/>
 		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-	
-	
+		<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
+		
 	</jstl:if>
 	<acme:form-hidden path="id"/>
 	
 	
 	<acme:form-return code="authenticated.worker.application.form.button.return"/>
 	<acme:form-submit test="${command == 'create'}" code="authenticated.worker.application.form.button.create" action="/worker/application/create"/>
-	<jstl:if test="${messageRejected!=null && messageRejected!=''}">
+	<jstl:if test="${status!='Pending'}">
 		<acme:form-submit test="${command == 'show'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
 		<acme:form-submit test="${command == 'update'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
-	
 	</jstl:if>
 	
 </acme:form>

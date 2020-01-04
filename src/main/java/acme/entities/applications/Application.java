@@ -64,6 +64,10 @@ public class Application extends DomainEntity {
 
 	private String				answerWorker;
 
+	private String				confirmation;
+
+	private String				cc;
+
 	//------
 
 	@NotNull

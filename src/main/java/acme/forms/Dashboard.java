@@ -30,5 +30,7 @@ public class Dashboard implements Serializable {
 	Double						avgNumberApplEmployer;
 	Double						avgNumberApplWorker;
 	Double						ratioJobsEtiqueta1;
+	Double						ratioApplicationAnswer;
+	Double						ratioApplicationConfirmation;
 
 }

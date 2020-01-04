@@ -1,6 +1,9 @@
 
 package acme.features.authenticated.worker.application;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +55,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation");
 
 	}
 
@@ -73,6 +76,44 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		int MIN_CARACTERES = 8;
+		int MIN_LETRAS = 5;
+		int MIN_DIGITOS = 2;
+		int MIN_SIMBOLOS = 1;
+
+		int tot_digitos = 0;
+		int tot_letras = 0;
+		int tot_caracteres = 0;
+		int tot_simbolos = 0;
+
+		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
+
+		if (entity.getConfirmation().length() != 0) {
+			for (int i = 0; i < entity.getConfirmation().length(); i++) {
+				char a = entity.getConfirmation().charAt(i);
+
+				if (Character.isDigit(a)) {
+					tot_digitos++;
+					tot_caracteres++;
+				}
+				if (Character.isLetter(a)) {
+					tot_letras++;
+					tot_caracteres++;
+				}
+				for (String symbol : list) {
+					String s = Character.toString(a);
+					if (symbol.equals(s)) {
+						tot_simbolos++;
+						tot_caracteres++;
+					}
+				}
+
+			}
+
+			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
+				errors.state(request, false, "confirmation", "the password must has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.");
+			}
+		}
 	}
 
 	@Override

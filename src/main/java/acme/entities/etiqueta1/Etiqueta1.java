@@ -27,7 +27,7 @@ public class Etiqueta1 extends DomainEntity {
 
 	//MAX=XXXX de momento he puesto 100 por poner un número
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Length(min = 1, max = 100)
 	private String				text;
 
 	@URL
