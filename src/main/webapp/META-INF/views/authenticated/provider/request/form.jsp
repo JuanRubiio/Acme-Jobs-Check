@@ -12,7 +12,7 @@
 	
 	</jstl:if>
 	
-	<acme:form-money code="authenticated.request.ticker" path="ticker" placeholder="RXXXX-99999"/>
+	<acme:form-textbox code="authenticated.request.ticker" path="ticker" placeholder="RXXXX-99999"/>
 	
 	<acme:form-moment code="authenticated.request.deadline" path="deadline"/>
 	<acme:form-textbox code="authenticated.request.text" path="text"/>
