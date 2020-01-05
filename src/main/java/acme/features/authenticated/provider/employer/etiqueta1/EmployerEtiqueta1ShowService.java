@@ -23,14 +23,15 @@ public class EmployerEtiqueta1ShowService implements AbstractShowService<Employe
 	public boolean authorise(final Request<Etiqueta1> request) {
 		assert request != null;
 		boolean result;
-		int dutyId;
+		int id;
 		Etiqueta1 et1;
 		Job job;
 		Principal principal;
 		Employer employer;
 
-		dutyId = request.getModel().getInteger("id");
-		et1 = this.repository.findOneById(dutyId);
+		String[] aux = request.getServletRequest().getQueryString().trim().split("=");
+		id = Integer.parseInt(aux[1]);
+		et1 = this.repository.findEtiqueta1ToThisJob(id);
 		job = et1.getJob();
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
@@ -55,8 +56,10 @@ public class EmployerEtiqueta1ShowService implements AbstractShowService<Employe
 		Etiqueta1 result;
 		int id;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		String[] aux = request.getServletRequest().getQueryString().trim().split("=");
+		id = Integer.parseInt(aux[1]);
+
+		result = this.repository.findEtiqueta1ToThisJob(id);
 
 		return result;
 	}

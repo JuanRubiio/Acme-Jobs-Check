@@ -22,4 +22,7 @@ public interface WorkerEtiqueta1Repository extends AbstractRepository {
 	@Query("select d from Job d where d.id=?1")
 	Job findJobById(int id);
 
+	@Query("select a from Etiqueta1 a where a.job.id =?1")
+	Etiqueta1 findEtiqueta1ToThisJob(int id);
+
 }

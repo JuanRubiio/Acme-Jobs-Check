@@ -56,10 +56,10 @@
 	<acme:form-submit code="master.menu.anonymous.listAuditRecords" action="/employer/audit-record/list-mine?id=${id}" method="get" />
 	</jstl:if>
 	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/employer/duty/list?id=${id}" method="get"/>
-	
+	<jstl:if test="${!ayuda}">
  	<%-- Cambiar para que salga directamente el show --%>
-	<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/employer/etiqueta1/list?id=${id}" method="get"/>
-	
+		<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/employer/etiqueta1/show?id=${id}" method="get"/>
+	</jstl:if>
 	
 </jstl:if>	
 </acme:form>
