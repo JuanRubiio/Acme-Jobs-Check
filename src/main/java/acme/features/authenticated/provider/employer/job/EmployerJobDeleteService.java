@@ -96,7 +96,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		}
 		Etiqueta1 e = this.repository.findEtiqueta1ToThisJob(entity.getId());
 		if (e != null) {
-			errors.state(request, false, "title", "employer.job.duties.delete");
+			errors.state(request, false, "title", "employer.job.etiqueta1.delete");
 
 		}
 	}

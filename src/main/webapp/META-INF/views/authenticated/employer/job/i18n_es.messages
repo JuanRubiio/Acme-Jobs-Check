@@ -22,3 +22,4 @@ employer.job.duties.delete = Se puede eliminar un trabajo siempre que no tenga s
 employer.job.statusnotpub = No puedes guardar un trabajo en modo final si no está publicado
 employer.job.porcenspam = No puedes guardar un trabajo en modo final si contiene palabras de spam
 employer.job.dutiescient = No puedes guardar un trabajo en modo final si los servicios no suman el 100% de la carga de trabajo semanal
+employer.job.etiqueta1.delete =  Se puede eliminar un trabajo siempre que no tenga etiqueta1 asociado

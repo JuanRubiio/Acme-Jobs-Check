@@ -38,8 +38,10 @@ public class Etiqueta1ShowService implements AbstractShowService<Authenticated, 
 		Etiqueta1 result;
 		int id;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		String[] aux = request.getServletRequest().getQueryString().trim().split("=");
+		id = Integer.parseInt(aux[1]);
+
+		result = this.repository.findEtiqueta1ToThisJob(id);
 
 		return result;
 	}

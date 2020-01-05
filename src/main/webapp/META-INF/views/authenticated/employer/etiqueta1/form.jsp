@@ -5,7 +5,7 @@
 <acme:form readonly="${finalMode}">
 	
 	<acme:form-textbox code="authenticated.employer.etiqueta1.form.label.text" path="text"/>
-	<acme:form-textbox code="authenticated.employer.etiqueta1.form.label.atributoEtiqueta1" path="atributoEtiqueta1" placeholder="https://www.acme.com" />
+	<acme:form-url code="authenticated.employer.etiqueta1.form.label.atributoEtiqueta1" path="atributoEtiqueta1"/>
 	
 
 	<acme:form-return code="authenticated.employer.etiqueta1.form.button.return"/>

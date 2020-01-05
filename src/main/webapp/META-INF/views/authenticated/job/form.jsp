@@ -24,7 +24,10 @@
 
 	<acme:form-return code="authenticated.employer.job.form.button.return"/>
 	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/authenticated/duty/list?id=${id}" method="get"/>
-	<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/authenticated/etiqueta1/list?id=${id}" method="get"/>
+	<jstl:if test="${!ayuda}">
+	<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/authenticated/etiqueta1/show?id=${id}" method="get"/>
+	</jstl:if>
+	
 	<acme:form-submit code="master.menu.anonymous.listAuditRecords" action="/authenticated/audit-record/list-mine?id=${id}" method="get" />
 	<jstl:if test="hasRole('Worker')">
 		<acme:form-submit test="${command == 'create'}" code="authenticated.worker.application.form.label.application" action="/worker/application/create"/>
