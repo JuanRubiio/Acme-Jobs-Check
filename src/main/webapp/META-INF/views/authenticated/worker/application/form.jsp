@@ -3,15 +3,15 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags" %>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.worker.application.form.label.referenceNumber" path="referenceNumber" placeholder="EEEE-JJJJ:WWWW" readonly="${command == 'show'}"/>
+	<acme:form-textbox code="authenticated.worker.application.form.label.referenceNumber" path="referenceNumber" placeholder="EEEE-JJJJ:WWWW" readonly="${command != 'create'}"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textbox code="authenticated.worker.application.form.label.status" path="status" readonly="true" />
 	</jstl:if>
-	<acme:form-textbox code="authenticated.worker.application.form.label.statement" path="statement" readonly="${command == 'show'}"/>
-	<acme:form-textbox code="authenticated.worker.application.form.label.skills" path="skills" readonly="${command == 'show'}"/>
-	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command == 'show'}"/>
+	<acme:form-textbox code="authenticated.worker.application.form.label.statement" path="statement" readonly="${command != 'create'}"/>
+	<acme:form-textbox code="authenticated.worker.application.form.label.skills" path="skills" readonly="${command != 'create'}"/>
+	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command != 'create'}"/>
 	<jstl:if test="${messageRejected!=null && status!='Pending'}">
-		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command == 'show'}"/>
+		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
 		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
 		<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
 		

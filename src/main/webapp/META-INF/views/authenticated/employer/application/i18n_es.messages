@@ -20,5 +20,5 @@ authenticated.employer.application.list.button.return = Volver
 
 authenticated.employer.application.form.label.answerWorker = Respuesta del trabajador
 authenticated.employer.application.form.label.cc = Confirmación
-
-
+authenticated.employer.application.form.label.justification = Si rechazó esta solicitud, debe tener una justificación obligatoria
+authenticated.employer.application.form.badPassword = Contraseña incorrecta
