@@ -91,9 +91,9 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 			errors.state(request, false, "messageRejected", "If you rejected this application, you must have a mandatory justification.");
 		}
 
-		//		if (entity.getCc() != entity.getConfirmation()) {
-		//			errors.state(request, false, "cc", "Password is incorrect");
-		//		}
+		if (!entity.getCc().equals(entity.getConfirmation())) {
+			errors.state(request, false, "cc", "Password is incorrect");
+		}
 
 	}
 
