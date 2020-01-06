@@ -97,10 +97,6 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 
 		}
 
-		if (!entity.getCc().equals(entity.getConfirmation())) {
-			errors.state(request, false, "cc", "Password is incorrect");
-		}
-
 	}
 
 	@Override
