@@ -60,6 +60,16 @@ public class Application extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				lastUpdate;
 
+	//CHECK
+
+	private String				answerWorker;
+
+	private String				confirmation;
+
+	private String				cc;
+
+	//------
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

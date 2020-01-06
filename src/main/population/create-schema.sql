@@ -26,6 +26,9 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `answer_worker` varchar(255),
+        `cc` varchar(255),
+        `confirmation` varchar(255),
         `last_update` datetime(6),
         `message_rejected` varchar(255),
         `moment` datetime(6),
@@ -172,6 +175,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `etiqueta1` (
+       `id` integer not null,
+        `version` integer not null,
+        `atributo_etiqueta1` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `garcia_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -210,6 +222,7 @@
        `id` integer not null,
         `version` integer not null,
         `active` bit,
+        `ayuda` bit,
         `deadline` datetime(6),
         `description` varchar(255),
         `link` varchar(255),
@@ -377,6 +390,9 @@ create index IDX8y5dhdokiy08xsb1smd6k1fgj on `credit_card` (`year_expired`);
 
     alter table `credit_card` 
        add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
+
+    alter table `etiqueta1` 
+       add constraint UK_q4tssroc9lmr199b0dtyqs3ff unique (`job_id`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
@@ -471,6 +487,11 @@ create index IDX6gmkj2nkoj8vh2sll34p8ogcc on `thread` (`moment`);
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `etiqueta1` 
+       add constraint `FKgj99ufrs3pixq1bgtvyyn2co` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 

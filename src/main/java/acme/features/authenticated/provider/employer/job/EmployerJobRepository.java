@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import acme.entities.applications.Application;
 import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.duty.Duty;
+import acme.entities.etiqueta1.Etiqueta1;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.repositories.AbstractRepository;
@@ -36,4 +37,6 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select a from Duty a where a.job.id =?1")
 	List<Duty> findAllDutiesToThisJob(int id);
 
+	@Query("select a from Etiqueta1 a where a.job.id =?1")
+	Etiqueta1 findEtiqueta1ToThisJob(int id);
 }

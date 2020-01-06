@@ -10,6 +10,10 @@ authenticated.employer.job.form.button.return = Volver
 authenticated.employer.job.form.label.percentage = Percentage
 authenticated.employer.job.form.label.active.duty = Servicios
 authenticated.employer.job.form.label.application = Aplicaciones
+authenticated.employer.job.form.label.active.etiqueta1 = Etiqueta1
+authenticated.employer.job.form.label.create.etiqueta1 = Crear Etiqueta1
+
+
 employer.job.duplicatedReference = Referencia duplicada
 employer.job.finalmode = Trabajo en modo final
 employer.job.applications =  Se puede eliminar un trabajo siempre que ningún trabajador lo haya solicitado
@@ -18,3 +22,4 @@ employer.job.duties.delete = Se puede eliminar un trabajo siempre que no tenga s
 employer.job.statusnotpub = No puedes guardar un trabajo en modo final si no está publicado
 employer.job.porcenspam = No puedes guardar un trabajo en modo final si contiene palabras de spam
 employer.job.dutiescient = No puedes guardar un trabajo en modo final si los servicios no suman el 100% de la carga de trabajo semanal
+employer.job.etiqueta1.delete =  Se puede eliminar un trabajo siempre que no tenga etiqueta1 asociado

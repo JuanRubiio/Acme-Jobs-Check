@@ -3,6 +3,7 @@ package acme.features.authenticated.provider.employer.application;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,7 +63,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "messageRejected", "worker");
+		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
 	}
 
 	@Override
@@ -88,7 +89,12 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		String sr = "Rejected";
 
 		if (entity.getStatus().contains(sr) && entity.getMessageRejected() == "") {
-			errors.state(request, false, "messageRejected", "If you rejected this application, you must have a mandatory justification.");
+			errors.state(request, false, "messageRejected", "authenticated.employer.application.form.label.justification");
+		}
+
+		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getConfirmation()) && !entity.getCc().equals(entity.getConfirmation())) {
+			errors.state(request, false, "cc", "authenticated.employer.application.form.badPassword");
+
 		}
 
 	}

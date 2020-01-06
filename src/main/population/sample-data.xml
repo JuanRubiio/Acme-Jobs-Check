@@ -562,6 +562,7 @@
 		<property name="description" value="Esta es la descripcion del job1"/>
 		<property name="active" value="true"/>
 		<property name="employer" ref="employerEmployer"/>	
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job2" class="acme.entities.job.Job">
@@ -574,6 +575,7 @@
 		<property name="description" value="Esta es la descripcion del job2"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 	<bean id="job3" class="acme.entities.job.Job">
 		<property name="reference" value="EMP1-JOB3"/>
@@ -585,6 +587,7 @@
 		<property name="description" value="Esta es la descripcion del job3"/>
 		<property name="active" value="true"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job4" class="acme.entities.job.Job">
@@ -597,6 +600,7 @@
 		<property name="description" value="Esta es la descripcion del job4"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="false"/>
 	</bean> 
 
 	<bean id="job5" class="acme.entities.job.Job">
@@ -609,6 +613,7 @@
 		<property name="description" value="Esta es la descripcion del job5"/>
 		<property name="active" value="false"/>
 		<property name="employer" ref="employerEmployer2"/>
+		<property name="ayuda" value="true"/>
 	</bean> 
 	
 	<bean id="auditRecord01" class="acme.entities.auditRecord.AuditRecord">
@@ -758,6 +763,9 @@
 		<property name="skills" value="ninguna"/>
 		<property name="qualifications" value="7.5"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job4"/>
 	</bean>
@@ -770,8 +778,11 @@
 		<property name="statement" value="i am good worker"/>
 		<property name="skills" value="secretary"/>
 		<property name="qualifications" value="8.75"/>
-		<property name="worker" ref="workerWorker"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
+		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job5"/>
 	</bean>
 	
@@ -784,6 +795,9 @@
 		<property name="skills" value="nothing"/>
 		<property name="qualifications" value="2.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job3"/>
 	</bean>
@@ -792,11 +806,14 @@
 		<property name="referenceNumber" value="EEEE:JJA1"/>
 		<property name="moment" value="2019/11/08 09:50"/>
 		<property name="lastUpdate" value="2019/11/08 09:50"/>
-		<property name="status" value="Pending"/>
+		<property name="status" value="Rejected"/>
 		<property name="statement" value="hello"/>
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="6.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -811,6 +828,9 @@
 		<property name="skills" value="1"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -824,6 +844,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -837,6 +860,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -851,6 +877,9 @@
 		<property name="skills" value="5"/>
 		<property name="qualifications" value="8"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -864,6 +893,9 @@
 		<property name="skills" value="2"/>
 		<property name="qualifications" value="4"/>
 		<property name="messageRejected"><null/></property>
+		<property name="answerWorker" value=""/>
+		<property name="confirmation" value=""/>
+		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
 	</bean>
@@ -1186,6 +1218,18 @@
 		<property name="thread" ref="thread4"/>
 		<property name="user" ref="workerUserAccount"/>
 		<property name="creatorThread" value = "true"/>
+	</bean>
+	
+	<bean id="etiqueta11" class="acme.entities.etiqueta1.Etiqueta1">
+		<property name="text" value="texto"/>
+		<property name="atributoEtiqueta1" value="https://www.everis.com/global/en"/>
+		<property name="job" ref="job1"/>
+	</bean>
+	
+	<bean id="etiqueta12" class="acme.entities.etiqueta1.Etiqueta1">
+		<property name="text" value="texto 2"/>
+		<property name="atributoEtiqueta1" value="https://www.everis.com/global/en"/>
+		<property name="job" ref="job2"/>
 	</bean>
 
 

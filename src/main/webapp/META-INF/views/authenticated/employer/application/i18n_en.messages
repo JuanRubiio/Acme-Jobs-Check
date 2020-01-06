@@ -18,4 +18,7 @@ authenticated.employer.application.list.label.status = Status
 authenticated.employer.application.list.label.qualifications = Qualifications
 authenticated.employer.application.list.button.return = Return
 
-
+authenticated.employer.application.form.label.answerWorker = Answer of the worker
+authenticated.employer.application.form.label.cc = Confirmation
+authenticated.employer.application.form.label.justification = If you rejected this application, you must have a mandatory justification
+authenticated.employer.application.form.badPassword = Wrong password

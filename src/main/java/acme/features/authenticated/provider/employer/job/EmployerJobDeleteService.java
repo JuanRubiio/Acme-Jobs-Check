@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
 import acme.entities.duty.Duty;
+import acme.entities.etiqueta1.Etiqueta1;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -60,7 +61,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active");
+		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active", "ayuda");
 
 	}
 
@@ -93,7 +94,11 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 			errors.state(request, false, "title", "employer.job.duties.delete");
 
 		}
+		Etiqueta1 e = this.repository.findEtiqueta1ToThisJob(entity.getId());
+		if (e != null) {
+			errors.state(request, false, "title", "employer.job.etiqueta1.delete");
 
+		}
 	}
 
 	@Override

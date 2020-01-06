@@ -20,7 +20,7 @@
 	<jstl:if test="${command != 'create' }">
 		<acme:form-moment code="authentication.offer.moment" path="moment" readonly="true"/>	
 	</jstl:if>
-	<acme:form-money code="authentication.offer.ticker" path="ticker" placeholder="OXXXX-99999"/>
+	<acme:form-textbox code="authentication.offer.ticker" path="ticker" placeholder="OXXXX-99999"/>
 	<acme:form-moment code="authentication.offer.deadline" path="deadline"/>
 	<acme:form-money code="authentication.offer.reward" path="reward"/>
 	<acme:form-money code="authentication.offer.maxPrice" path="maxPrice"/>
