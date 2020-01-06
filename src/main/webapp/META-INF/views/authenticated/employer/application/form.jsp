@@ -38,7 +38,7 @@
 	<acme:form-textbox code="authenticated.employer.application.form.label.qualifications" path="qualifications" readonly="true"/>	
 	
 	<acme:form-textbox code="authenticated.employer.application.form.label.messageRejected" path="messageRejected"/>
-	
+	<acme:form-hidden path="confirmation"/>
 	
 		<jstl:if test="${confirmation=='' && status !='Pending'}">	
 		<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
