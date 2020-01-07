@@ -54,8 +54,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double avgNumberJobOEmployer = this.repository.getavgNumberJobOEmployer();
 		Double avgNumberApplEmployer = this.repository.getavgNumberApplEmployer();
 		Double avgNumberApplWorker = this.repository.getavgNumberApplWorker();
-		Double ratioJobsEtiqueta1 = this.repository.getRatioJobsEtiqueta1();
-		Double ratioApplicationAnswer = this.repository.getRatioApplicationAnswer();
+		Double ratioJobsMolet = this.repository.getRatioJobsMolet();
+		Double ratioApplicationAnswer = this.repository.getRatioMoletKey();
 		Double ratioApplicationConfirmation = this.repository.getRatioApplicationConfirmation();
 
 		res.setTotalNumberCompanyRecords(totalNumberCompanyRecords);
@@ -72,7 +72,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		res.setAvgNumberJobOEmployer(avgNumberJobOEmployer);
 		res.setAvgNumberApplEmployer(avgNumberApplEmployer);
 		res.setAvgNumberApplWorker(avgNumberApplWorker);
-		res.setRatioJobsEtiqueta1(ratioJobsEtiqueta1);
+		res.setRatioJobsEtiqueta1(ratioJobsMolet);
 		res.setRatioApplicationAnswer(ratioApplicationAnswer);
 		res.setRatioApplicationConfirmation(ratioApplicationConfirmation);
 

@@ -4,8 +4,8 @@ package acme.features.authenticated.provider.employer.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
 import acme.entities.job.Job;
+import acme.entities.molet.Molet;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -46,7 +46,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert model != null;
 
 		int jobId = request.getModel().getInteger("id");
-		Etiqueta1 e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Molet e = this.repository.findMoletToThisJob(jobId);
 		if (e == null) {
 			entity.setAyuda(true);
 		} else {

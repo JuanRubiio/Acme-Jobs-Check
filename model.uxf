@@ -1073,7 +1073,7 @@ style=wordwrap</panel_attributes>
 + qualifications: String {NotBlank} 
 + messageRejected: String {}
 + answerWorker: String {}
-+ confirmation: String {}
++ key: String {}
 + cc: String {}
 + worker: Worker {NotNull, Valid, ManyToOne(optional=false)}
 + job: Job {NotNull, Valid, ManyToOne(optional=false)}</panel_attributes>
@@ -1215,10 +1215,10 @@ style=wordwrap</panel_attributes>
       <w>266</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>Etiqueta1
+    <panel_attributes>Molet
 --
 + text: String {NotBlank,Length(min=1,max=100)}
-+ atributoEtiqueta1: String {URL}
++ key: String {URL}
 + job: Job {NotNull, Valid, OneToOne(optional=false)}
 
 </panel_attributes>

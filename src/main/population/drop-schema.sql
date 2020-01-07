@@ -55,10 +55,6 @@
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
 
-    alter table `etiqueta1` 
-       drop 
-       foreign key `FKgj99ufrs3pixq1bgtvyyn2co`;
-
     alter table `job` 
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
@@ -70,6 +66,10 @@
     alter table `message` 
        drop 
        foreign key `FK28hjkn063wrsjuiyyf8sm3s2v`;
+
+    alter table `molet` 
+       drop 
+       foreign key `FKdwp59t094m4plne9tvc5k35ld`;
 
     alter table `non_commercial_banner` 
        drop 
@@ -135,8 +135,6 @@
 
     drop table if exists `employer`;
 
-    drop table if exists `etiqueta1`;
-
     drop table if exists `garcia_bulletin`;
 
     drop table if exists `investor_record`;
@@ -146,6 +144,8 @@
     drop table if exists `job`;
 
     drop table if exists `message`;
+
+    drop table if exists `molet`;
 
     drop table if exists `non_commercial_banner`;
 

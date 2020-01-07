@@ -1,0 +1,6 @@
+authenticated.employer.molet.form.label.text = Text:
+authenticated.employer.molet.form.label.key = Key:
+authenticated.employer.molet.form.button.return = Return
+authenticated.employer.molet.form.button.update = Update
+authenticated.employer.molet.form.button.delete = Delete
+authenticated.employer.molet.form.button.create = Create

@@ -1,0 +1,6 @@
+authenticated.employer.molet.form.label.text = Texto:
+authenticated.employer.molet.form.label.key = Clave:
+authenticated.employer.molet.form.button.return = Volver
+authenticated.employer.molet.form.button.update = Editar
+authenticated.employer.molet.form.button.delete = Borrar
+authenticated.employer.molet.form.button.create = Crear

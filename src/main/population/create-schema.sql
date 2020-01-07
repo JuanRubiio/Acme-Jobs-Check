@@ -28,7 +28,7 @@
         `version` integer not null,
         `answer_worker` varchar(255),
         `cc` varchar(255),
-        `confirmation` varchar(255),
+        `key` varchar(255),
         `last_update` datetime(6),
         `message_rejected` varchar(255),
         `moment` datetime(6),
@@ -175,15 +175,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `etiqueta1` (
-       `id` integer not null,
-        `version` integer not null,
-        `atributo_etiqueta1` varchar(255),
-        `text` varchar(255),
-        `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `garcia_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -244,6 +235,15 @@
         `title` varchar(255),
         `sender_id` integer not null,
         `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `molet` (
+       `id` integer not null,
+        `version` integer not null,
+        `key` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -390,9 +390,6 @@ create index IDX8y5dhdokiy08xsb1smd6k1fgj on `credit_card` (`year_expired`);
 
     alter table `credit_card` 
        add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
-
-    alter table `etiqueta1` 
-       add constraint UK_q4tssroc9lmr199b0dtyqs3ff unique (`job_id`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
@@ -400,6 +397,9 @@ create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXeq5fhm2b5j1q3ex9vhpmvlwg0 on `message` (`moment`);
+
+    alter table `molet` 
+       add constraint UK_l59huaiwyc4t7837dey1l9cht unique (`job_id`);
 create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
@@ -488,11 +488,6 @@ create index IDX6gmkj2nkoj8vh2sll34p8ogcc on `thread` (`moment`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `etiqueta1` 
-       add constraint `FKgj99ufrs3pixq1bgtvyyn2co` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
-
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
@@ -507,6 +502,11 @@ create index IDX6gmkj2nkoj8vh2sll34p8ogcc on `thread` (`moment`);
        add constraint `FK28hjkn063wrsjuiyyf8sm3s2v` 
        foreign key (`thread_id`) 
        references `thread` (`id`);
+
+    alter table `molet` 
+       add constraint `FKdwp59t094m4plne9tvc5k35ld` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `non_commercial_banner` 
        add constraint FK_2l8gpcwh19e7jj513or4r9dvb 

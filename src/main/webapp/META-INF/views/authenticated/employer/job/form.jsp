@@ -48,7 +48,7 @@
 	<jstl:if test="${!active}">
 	<acme:form-submit code="authenticated.employer.job.form.label.create.duty" action="/employer/duty/create?id=${id}" method="get" />
 		<jstl:if test="${ayuda}">
-			<acme:form-submit code="authenticated.employer.job.form.label.create.etiqueta1" action="/employer/etiqueta1/create?id=${id}" method="get" />
+			<acme:form-submit code="authenticated.employer.job.form.label.create.molet" action="/employer/molet/create?id=${id}" method="get" />
 		</jstl:if>
 	</jstl:if>	
 	<jstl:if test="${active}">
@@ -58,7 +58,7 @@
 	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/employer/duty/list?id=${id}" method="get"/>
 	<jstl:if test="${!ayuda}">
  	<%-- Cambiar para que salga directamente el show --%>
-		<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/employer/etiqueta1/show?id=${id}" method="get"/>
+		<acme:form-submit code="authenticated.employer.job.form.label.active.molet" action="/employer/molet/show?id=${id}" method="get"/>
 	</jstl:if>
 	
 </jstl:if>	

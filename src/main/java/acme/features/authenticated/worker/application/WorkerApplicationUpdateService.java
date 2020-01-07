@@ -55,7 +55,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "key");
 
 	}
 
@@ -76,9 +76,9 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		int MIN_CARACTERES = 8;
-		int MIN_LETRAS = 5;
-		int MIN_DIGITOS = 2;
+		int MIN_CARACTERES = 10;
+		int MIN_LETRAS = 1;
+		int MIN_DIGITOS = 1;
 		int MIN_SIMBOLOS = 1;
 
 		int tot_digitos = 0;
@@ -88,9 +88,9 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 
 		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
 
-		if (entity.getConfirmation().length() != 0) {
-			for (int i = 0; i < entity.getConfirmation().length(); i++) {
-				char a = entity.getConfirmation().charAt(i);
+		if (entity.getKey().length() != 0) {
+			for (int i = 0; i < entity.getKey().length(); i++) {
+				char a = entity.getKey().charAt(i);
 
 				if (Character.isDigit(a)) {
 					tot_digitos++;
@@ -111,7 +111,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 			}
 
 			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-				errors.state(request, false, "confirmation", "worker.application.confirmationPass");
+				errors.state(request, false, "key", "worker.application.confirmationPass");
 			}
 		}
 	}

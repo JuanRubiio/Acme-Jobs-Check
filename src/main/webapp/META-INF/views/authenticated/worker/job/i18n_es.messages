@@ -11,4 +11,4 @@ authenticated.worker.job.form.label.percentage = Percentage
 authenticated.worker.job.form.label.active.duty = Servicios
 authenticated.worker.job.form.label.application = Aplicaciones
 authenticated.employer.job.form.label.create = Crear Solicitud para este trabajo
-authenticated.employer.job.form.label.active.etiqueta1 = Etiqueta1
+authenticated.employer.job.form.label.active.molet = Molet

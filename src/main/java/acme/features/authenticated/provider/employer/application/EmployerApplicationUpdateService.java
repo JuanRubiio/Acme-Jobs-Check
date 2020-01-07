@@ -63,7 +63,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "key", "cc");
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 			errors.state(request, false, "messageRejected", "authenticated.employer.application.form.label.justification");
 		}
 
-		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getConfirmation()) && !entity.getCc().equals(entity.getConfirmation())) {
+		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getKey()) && !entity.getCc().equals(entity.getKey())) {
 			errors.state(request, false, "cc", "authenticated.employer.application.form.badPassword");
 
 		}
