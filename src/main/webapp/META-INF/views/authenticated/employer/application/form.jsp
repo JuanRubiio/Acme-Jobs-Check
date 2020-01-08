@@ -38,14 +38,14 @@
 	<acme:form-textbox code="authenticated.employer.application.form.label.qualifications" path="qualifications" readonly="true"/>	
 	
 	<acme:form-textbox code="authenticated.employer.application.form.label.messageRejected" path="messageRejected"/>
-	<acme:form-hidden path="key"/>
+	<acme:form-hidden path="keyPass"/>
 	
-		<jstl:if test="${((status=='Rejected' && messageRejected!='') || status=='Accepted') && key=='' }">	
+		<jstl:if test="${((status=='Rejected' && messageRejected!='') || status=='Accepted') && keyPass=='' }">	
 		<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
 		</jstl:if>
-		<jstl:if test="${key!='' && status !='Pending'}">
+		<jstl:if test="${keyPass!='' && status !='Pending'}">
 			<acme:form-password code="authenticated.employer.application.form.label.cc" path="cc"/>
-			<jstl:if test="${key==cc}">
+			<jstl:if test="${keyPass==cc}">
 				<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
 			</jstl:if>
 		</jstl:if>

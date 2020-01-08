@@ -56,7 +56,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker", "key");
+		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker", "keyPass");
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		String answerWorker = "";
 		res.setAnswerWorker(answerWorker);
 		String key = "";
-		res.setKey(key);
+		res.setKeyPass(key);
 		return res;
 
 	}

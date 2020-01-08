@@ -64,7 +64,7 @@ public class Application extends DomainEntity {
 
 	private String				answerWorker;
 
-	private String				key;
+	private String				keyPass;
 
 	private String				cc;
 

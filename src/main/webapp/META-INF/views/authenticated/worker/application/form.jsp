@@ -13,7 +13,7 @@
 	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
 		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-		<acme:form-password code="authenticated.worker.application.list.label.key" path="key"/>
+		<acme:form-password code="authenticated.worker.application.list.label.key" path="keyPass"/>
 		
 	</jstl:if>
 	<acme:form-hidden path="id"/>

@@ -32,7 +32,7 @@ public class WorkerMoletListService implements AbstractListService<Worker, Molet
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "key");
+		request.unbind(entity, model, "text", "keyAt");
 	}
 
 	@Override

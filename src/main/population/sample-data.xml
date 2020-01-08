@@ -764,7 +764,7 @@
 		<property name="qualifications" value="7.5"/>
 		<property name="messageRejected"><null/></property>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job4"/>
@@ -780,7 +780,7 @@
 		<property name="qualifications" value="8.75"/>
 		<property name="messageRejected"><null/></property>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job5"/>
@@ -796,7 +796,7 @@
 		<property name="qualifications" value="2.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job3"/>
@@ -812,7 +812,7 @@
 		<property name="qualifications" value="6.5"/>
 		<property name="messageRejected" value="no tienes el perfil que buscamos"/>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
@@ -829,7 +829,7 @@
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
@@ -845,7 +845,7 @@
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected"><null/></property>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
@@ -861,7 +861,7 @@
 		<property name="qualifications" value="7"/>
 		<property name="messageRejected" value="sin motivo aparente"/>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker2"/>
 		<property name="job" ref="job1"/>
@@ -878,7 +878,7 @@
 		<property name="qualifications" value="8"/>
 		<property name="messageRejected"><null/></property>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
@@ -894,7 +894,7 @@
 		<property name="qualifications" value="4"/>
 		<property name="messageRejected"><null/></property>
 		<property name="answerWorker" value=""/>
-		<property name="key" value=""/>
+		<property name="keyPass" value=""/>
 		<property name="cc" value=""/>
 		<property name="worker" ref="workerWorker"/>
 		<property name="job" ref="job1"/>
@@ -1222,13 +1222,13 @@
 	
 	<bean id="molet1" class="acme.entities.molet.Molet">
 		<property name="text" value="texto"/>
-		<property name="key" value="https://www.everis.com/global/en"/>
+		<property name="keyAt" value="https://www.everis.com/global/en"/>
 		<property name="job" ref="job1"/>
 	</bean>
 	
 	<bean id="molet2" class="acme.entities.molet.Molet">
 		<property name="text" value="texto 2"/>
-		<property name="key" value="https://www.everis.com/global/en"/>
+		<property name="keyAt" value="https://www.everis.com/global/en"/>
 		<property name="job" ref="job2"/>
 	</bean>
 
