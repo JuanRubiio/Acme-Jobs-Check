@@ -54,12 +54,10 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select avg(select count(j) from Molet j where j.job.id = ua.id) from Job ua")
 	Double getRatioJobsMolet();
 
-	@Query("select avg(select j.keyAt from Molet j where j.id = ua.id) from Molet ua")
+	@Query("select avg(select j.keyAt !='' from Molet j where j.id = ua.id) from Molet ua")
 	Double getRatioMoletKey();
 
 	@Query("select avg(select a.keyPass !='' from Application a where a.id = ua.id) from Application ua")
 	Double getRatioApplicationConfirmation();
 
-	//	@Query("select avg(select count(a.confirmation) from Application a where a.id = ua.id) from Application ua")
-	//	Double getRatioApplicationConfirmation();
 }
