@@ -6,7 +6,7 @@
 
 <acme:list>
 	<acme:list-column code="authenticated.employer.etiqueta1.form.label.text" path="text" width="30%"/>	
-	<acme:list-column code="authenticated.employer.etiqueta1.form.label.atributoEtiqueta1" path="atributoEtiqueta1" width="70%"/>
+	<acme:list-column code="authenticated.employer.etiqueta1.form.label.atributoEtiqueta1" path="badge" width="70%"/>
 </acme:list>
 
 <acme:form-return code="authenticated.employer.etiqueta1.form.button.return"/>

@@ -23,6 +23,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `aolet` (
+       `id` integer not null,
+        `version` integer not null,
+        `badge` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `application` (
        `id` integer not null,
         `version` integer not null,
@@ -175,15 +184,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `etiqueta1` (
-       `id` integer not null,
-        `version` integer not null,
-        `atributo_etiqueta1` varchar(255),
-        `text` varchar(255),
-        `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `garcia_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -222,7 +222,6 @@
        `id` integer not null,
         `version` integer not null,
         `active` bit,
-        `ayuda` bit,
         `deadline` datetime(6),
         `description` varchar(255),
         `link` varchar(255),
@@ -373,6 +372,9 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
+
+    alter table `aolet` 
+       add constraint UK_a3ksflekvpcofl7ypjnf9rewb unique (`job_id`);
 create index IDXnlv6ege1ixororpblu3lctiev on `application` (`reference_number`);
 create index IDXg54pxa1gngqheaipukeg8jypk on `application` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
@@ -390,9 +392,6 @@ create index IDX8y5dhdokiy08xsb1smd6k1fgj on `credit_card` (`year_expired`);
 
     alter table `credit_card` 
        add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
-
-    alter table `etiqueta1` 
-       add constraint UK_q4tssroc9lmr199b0dtyqs3ff unique (`job_id`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
@@ -427,6 +426,11 @@ create index IDX6gmkj2nkoj8vh2sll34p8ogcc on `thread` (`moment`);
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `aolet` 
+       add constraint `FK6aqhcf5q0n808w63ec8g811c4` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `application` 
        add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
@@ -487,11 +491,6 @@ create index IDX6gmkj2nkoj8vh2sll34p8ogcc on `thread` (`moment`);
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `etiqueta1` 
-       add constraint `FKgj99ufrs3pixq1bgtvyyn2co` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
 
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 

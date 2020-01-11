@@ -51,16 +51,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select avg(select count(j) from Application j where j.worker.id = ua.id) from Worker ua")
 	Double getavgNumberApplWorker();
 
-	@Query("select avg(select count(j) from Etiqueta1 j where j.job.id = ua.id) from Job ua")
+	@Query("select avg(select count(j) from Aolet j where j.job.id = ua.id) from Job ua")
 	Double getRatioJobsEtiqueta1();
 
-	@Query("select avg(select a.answerWorker !='' from Application a where a.id = ua.id) from Application ua")
+	@Query("select avg(select count(ua) from Aolet ua where ua.badge!='') from Aolet ao")
 	Double getRatioApplicationAnswer();
 
 	//	@Query("select avg(select count(a.answerWorker) from Application a where a.id = ua.id) from Application ua")
 	//	Double getRatioApplicationAnswer();
 
-	@Query("select avg(select a.confirmation !='' from Application a where a.id = ua.id) from Application ua")
+	@Query("select avg(select a.cc !='' from Application a where a.id = ua.id) from Application ua")
 	Double getRatioApplicationConfirmation();
 
 	//	@Query("select avg(select count(a.confirmation) from Application a where a.id = ua.id) from Application ua")

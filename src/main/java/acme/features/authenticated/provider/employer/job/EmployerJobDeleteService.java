@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.duty.Duty;
-import acme.entities.etiqueta1.Etiqueta1;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -60,9 +60,17 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		int jobId = request.getModel().getInteger("id");
+		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Boolean b = false;
+		if (e == null) {
+			b = true;
+		} else {
+			b = false;
+		}
 
-		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active", "ayuda");
-
+		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active");
+		model.setAttribute("ayuda", b);
 	}
 
 	@Override
@@ -94,7 +102,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 			errors.state(request, false, "title", "employer.job.duties.delete");
 
 		}
-		Etiqueta1 e = this.repository.findEtiqueta1ToThisJob(entity.getId());
+		Aolet e = this.repository.findEtiqueta1ToThisJob(entity.getId());
 		if (e != null) {
 			errors.state(request, false, "title", "employer.job.etiqueta1.delete");
 

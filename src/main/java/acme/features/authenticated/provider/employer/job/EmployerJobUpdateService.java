@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
@@ -61,9 +62,17 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		int jobId = request.getModel().getInteger("id");
+		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Boolean b = false;
+		if (e == null) {
+			b = true;
+		} else {
+			b = false;
+		}
 
-		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active", "ayuda");
-
+		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active");
+		model.setAttribute("ayuda", b);
 	}
 
 	@Override

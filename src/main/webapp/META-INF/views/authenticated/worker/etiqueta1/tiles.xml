@@ -6,11 +6,11 @@
 			
 <tiles-definitions>
 	
-	<definition name="worker/etiqueta1/form" extends="master">
+	<definition name="worker/aolet/form" extends="master">
 		<put-attribute name="body" type="template" value="../authenticated/worker/etiqueta1/form.jsp" />
 	</definition>
 	
-	<definition name="worker/etiqueta1/list" extends="master">
+	<definition name="worker/aolet/list" extends="master">
 		<put-attribute name="body" type="template" value="../authenticated/worker/etiqueta1/list.jsp" />
 	</definition>
 

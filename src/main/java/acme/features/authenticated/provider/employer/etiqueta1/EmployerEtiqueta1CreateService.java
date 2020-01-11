@@ -4,7 +4,7 @@ package acme.features.authenticated.provider.employer.etiqueta1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -13,21 +13,21 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerEtiqueta1CreateService implements AbstractCreateService<Employer, Etiqueta1> {
+public class EmployerEtiqueta1CreateService implements AbstractCreateService<Employer, Aolet> {
 
 	@Autowired
 	private EmployerEtiqueta1Repository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Etiqueta1> request) {
+	public boolean authorise(final Request<Aolet> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Errors errors) {
+	public void bind(final Request<Aolet> request, final Aolet entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -36,20 +36,20 @@ public class EmployerEtiqueta1CreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void unbind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Model model) {
+	public void unbind(final Request<Aolet> request, final Aolet entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "atributoEtiqueta1");
+		request.unbind(entity, model, "text", "badge");
 		model.setAttribute("id", entity.getJob().getId());
 
 	}
 
 	@Override
-	public Etiqueta1 instantiate(final Request<Etiqueta1> request) {
-		Etiqueta1 res;
-		res = new Etiqueta1();
+	public Aolet instantiate(final Request<Aolet> request) {
+		Aolet res;
+		res = new Aolet();
 		int idJob = request.getModel().getInteger("id");
 		Job job = this.repository.findJobById(idJob);
 		if (job != null) {
@@ -60,19 +60,19 @@ public class EmployerEtiqueta1CreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void validate(final Request<Etiqueta1> request, final Etiqueta1 entity, final Errors errors) {
+	public void validate(final Request<Aolet> request, final Aolet entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		if (entity.getText().length() > 100) {
-			errors.state(request, false, "text", "The text must be lower than 100 words");
+		if (entity.getText().length() > 256) {
+			errors.state(request, false, "text", "authenticated.employer.etiqueta1.error");
 		}
 
 	}
 
 	@Override
-	public void create(final Request<Etiqueta1> request, final Etiqueta1 entity) {
+	public void create(final Request<Aolet> request, final Aolet entity) {
 		assert request != null;
 		assert entity != null;
 

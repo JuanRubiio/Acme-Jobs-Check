@@ -18,6 +18,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Worker;
@@ -50,4 +51,7 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select a.id from Job a where a.deadline > now() and a.status = 'published'")
 	List<Integer> findIdJobsActive();
+
+	@Query("select a from Aolet a where a.job.id =?1")
+	Aolet findEtiqueta1ToThisJob(int id);
 }

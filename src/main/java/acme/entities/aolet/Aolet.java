@@ -1,5 +1,5 @@
 
-package acme.entities.etiqueta1;
+package acme.entities.aolet;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Etiqueta1 extends DomainEntity {
+public class Aolet extends DomainEntity {
 
 	/**
 	 *
@@ -27,11 +27,11 @@ public class Etiqueta1 extends DomainEntity {
 
 	//MAX=XXXX de momento he puesto 100 por poner un número
 	@NotBlank
-	@Length(min = 1, max = 100)
+	@Length(min = 1, max = 256)
 	private String				text;
 
 	@URL
-	private String				atributoEtiqueta1;
+	private String				badge;
 
 	@NotNull
 	@Valid

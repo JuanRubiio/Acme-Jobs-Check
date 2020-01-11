@@ -18,6 +18,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.framework.repositories.AbstractRepository;
 
@@ -44,4 +45,7 @@ public interface EmployerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a where a.job.employer.id = ?1 order by a.status asc")
 	List<Application> orderApplicationToThisEmployer(int id);
+
+	@Query("select a from Aolet a where a.job.id =?1")
+	Aolet findEtiqueta1ToThisJob(int id);
 }

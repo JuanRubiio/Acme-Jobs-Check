@@ -1,12 +1,15 @@
 
 package acme.features.authenticated.provider.employer.application;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
@@ -62,8 +65,21 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		Aolet result;
+		int id;
+		Boolean b = false;
+		id = entity.getJob().getId();
+		String value = "";
 
-		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		result = this.repository.findEtiqueta1ToThisJob(id);
+		if (StringUtils.isNotBlank(result.getBadge())) {
+			value = result.getBadge();
+			b = true;
+		}
+
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		model.setAttribute("badger", value);
+		model.setAttribute("conf", b);
 	}
 
 	@Override
@@ -92,9 +108,42 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 			errors.state(request, false, "messageRejected", "authenticated.employer.application.form.label.justification");
 		}
 
-		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getConfirmation()) && !entity.getCc().equals(entity.getConfirmation())) {
-			errors.state(request, false, "cc", "authenticated.employer.application.form.badPassword");
+		int MIN_CARACTERES = 10;
+		int MIN_LETRAS = 1;
+		int MIN_DIGITOS = 1;
+		int MIN_SIMBOLOS = 1;
 
+		int tot_digitos = 0;
+		int tot_letras = 0;
+		int tot_caracteres = 0;
+		int tot_simbolos = 0;
+
+		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
+		if (entity.getCc().length() != 0) {
+			for (int i = 0; i < entity.getCc().length(); i++) {
+				char a = entity.getCc().charAt(i);
+
+				if (Character.isDigit(a)) {
+					tot_digitos++;
+					tot_caracteres++;
+				}
+				if (Character.isLetter(a)) {
+					tot_letras++;
+					tot_caracteres++;
+				}
+				for (String symbol : list) {
+					String s = Character.toString(a);
+					if (symbol.equals(s)) {
+						tot_simbolos++;
+						tot_caracteres++;
+					}
+				}
+
+			}
+
+			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
+				errors.state(request, false, "cc", "worker.application.confirmationPass");
+			}
 		}
 
 	}

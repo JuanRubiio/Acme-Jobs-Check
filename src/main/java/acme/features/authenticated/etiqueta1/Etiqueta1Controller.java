@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/etiqueta1/")
-public class Etiqueta1Controller extends AbstractController<Authenticated, Etiqueta1> {
+@RequestMapping("/authenticated/aolet/")
+public class Etiqueta1Controller extends AbstractController<Authenticated, Aolet> {
 
 	@Autowired
 	private Etiqueta1ListService	listService;

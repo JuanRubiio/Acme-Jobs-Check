@@ -1,12 +1,11 @@
 
 package acme.features.authenticated.worker.application;
 
-import java.util.Arrays;
-import java.util.List;
-
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
@@ -55,8 +54,21 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation");
+		Aolet result;
+		int id;
+		Boolean b = false;
+		id = entity.getJob().getId();
+		String value = "";
 
+		result = this.repository.findEtiqueta1ToThisJob(id);
+		if (StringUtils.isNotBlank(result.getBadge())) {
+			value = result.getBadge();
+			b = true;
+		}
+
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		model.setAttribute("badger", value);
+		model.setAttribute("conf", b);
 	}
 
 	@Override
@@ -76,44 +88,18 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		int MIN_CARACTERES = 8;
-		int MIN_LETRAS = 5;
-		int MIN_DIGITOS = 2;
-		int MIN_SIMBOLOS = 1;
+		//		Pattern pattern;
+		//		pattern = Pattern.compile("^(?=.*[A-Za-z]){5,}(?=.*\\d){2,}(?=.*[,.;:¿\\(\\)\\[\\]\\\"\\-_¨\\/&]){1,}[A-Za-z\\d,.;:¿\\(\\)\\[\\]\\\"\\-_¨\\/&]{8,}$");
+		//
+		//		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
+		//			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
+		//		}
 
-		int tot_digitos = 0;
-		int tot_letras = 0;
-		int tot_caracteres = 0;
-		int tot_simbolos = 0;
+		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getConfirmation()) && !entity.getCc().equals(entity.getConfirmation())) {
+			errors.state(request, false, "confirmation", "authenticated.employer.application.form.badPassword");
 
-		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
-
-		if (entity.getConfirmation().length() != 0) {
-			for (int i = 0; i < entity.getConfirmation().length(); i++) {
-				char a = entity.getConfirmation().charAt(i);
-
-				if (Character.isDigit(a)) {
-					tot_digitos++;
-					tot_caracteres++;
-				}
-				if (Character.isLetter(a)) {
-					tot_letras++;
-					tot_caracteres++;
-				}
-				for (String symbol : list) {
-					String s = Character.toString(a);
-					if (symbol.equals(s)) {
-						tot_simbolos++;
-						tot_caracteres++;
-					}
-				}
-
-			}
-
-			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-				errors.state(request, false, "confirmation", "worker.application.confirmationPass");
-			}
 		}
+
 	}
 
 	@Override

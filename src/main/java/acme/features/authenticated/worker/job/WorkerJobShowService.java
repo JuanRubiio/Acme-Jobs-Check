@@ -4,7 +4,7 @@ package acme.features.authenticated.worker.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.job.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
@@ -45,15 +45,16 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert model != null;
 
 		int jobId = request.getModel().getInteger("id");
-		Etiqueta1 e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Boolean b = false;
 		if (e == null) {
-			entity.setAyuda(true);
+			b = true;
 		} else {
-			entity.setAyuda(false);
+			b = false;
 		}
 
-		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active", "ayuda");
-
+		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active");
+		model.setAttribute("ayuda", b);
 	}
 
 	@Override

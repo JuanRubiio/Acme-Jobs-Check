@@ -4,7 +4,7 @@ package acme.features.authenticated.provider.employer.etiqueta1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -14,18 +14,18 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EmployerEtiqueta1UpdateService implements AbstractUpdateService<Employer, Etiqueta1> {
+public class EmployerEtiqueta1UpdateService implements AbstractUpdateService<Employer, Aolet> {
 
 	@Autowired
 	EmployerEtiqueta1Repository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Etiqueta1> request) {
+	public boolean authorise(final Request<Aolet> request) {
 		assert request != null;
 		boolean result;
 		int jobId;
-		Etiqueta1 et1;
+		Aolet et1;
 		Job job;
 		Principal principal;
 		Employer employer;
@@ -42,7 +42,7 @@ public class EmployerEtiqueta1UpdateService implements AbstractUpdateService<Emp
 	}
 
 	@Override
-	public void bind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Errors errors) {
+	public void bind(final Request<Aolet> request, final Aolet entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -51,21 +51,21 @@ public class EmployerEtiqueta1UpdateService implements AbstractUpdateService<Emp
 	}
 
 	@Override
-	public void unbind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Model model) {
+	public void unbind(final Request<Aolet> request, final Aolet entity, final Model model) {
 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "atributoEtiqueta1");
+		request.unbind(entity, model, "text", "badge");
 
 	}
 
 	@Override
-	public Etiqueta1 findOne(final Request<Etiqueta1> request) {
+	public Aolet findOne(final Request<Aolet> request) {
 		assert request != null;
 
-		Etiqueta1 result;
+		Aolet result;
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
@@ -73,15 +73,19 @@ public class EmployerEtiqueta1UpdateService implements AbstractUpdateService<Emp
 	}
 
 	@Override
-	public void validate(final Request<Etiqueta1> request, final Etiqueta1 entity, final Errors errors) {
+	public void validate(final Request<Aolet> request, final Aolet entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
+		if (entity.getText().length() > 256) {
+			errors.state(request, false, "text", "authenticated.employer.etiqueta1.error");
+		}
+
 	}
 
 	@Override
-	public void update(final Request<Etiqueta1> request, final Etiqueta1 entity) {
+	public void update(final Request<Aolet> request, final Aolet entity) {
 		assert request != null;
 		assert entity != null;
 

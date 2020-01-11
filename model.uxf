@@ -598,7 +598,6 @@ Worker
 + link: String {URL}
 + active: Boolean {}
 + description: String {NotBlank}
-+ ayuda: Boolean {}
 + employer: Employer {NotNull, Valid, ManyToOne(optional=false)}
 
 </panel_attributes>
@@ -1215,10 +1214,10 @@ style=wordwrap</panel_attributes>
       <w>266</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>Etiqueta1
+    <panel_attributes>Aolet
 --
 + text: String {NotBlank,Length(min=1,max=100)}
-+ atributoEtiqueta1: String {URL}
++ badge: String {URL}
 + job: Job {NotNull, Valid, OneToOne(optional=false)}
 
 </panel_attributes>
@@ -1229,7 +1228,7 @@ style=wordwrap</panel_attributes>
     <coordinates>
       <x>1050</x>
       <y>742</y>
-      <w>42</w>
+      <w>35</w>
       <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;-

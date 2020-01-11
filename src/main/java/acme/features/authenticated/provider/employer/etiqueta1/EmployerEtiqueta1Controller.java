@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.roles.Employer;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/employer/etiqueta1/")
-public class EmployerEtiqueta1Controller extends AbstractController<Employer, Etiqueta1> {
+@RequestMapping("/employer/aolet/")
+public class EmployerEtiqueta1Controller extends AbstractController<Employer, Aolet> {
 
 	@Autowired
 	private EmployerEtiqueta1ListService	listService;

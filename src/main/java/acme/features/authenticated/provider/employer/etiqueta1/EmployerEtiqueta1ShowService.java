@@ -4,7 +4,7 @@ package acme.features.authenticated.provider.employer.etiqueta1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
@@ -13,18 +13,18 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EmployerEtiqueta1ShowService implements AbstractShowService<Employer, Etiqueta1> {
+public class EmployerEtiqueta1ShowService implements AbstractShowService<Employer, Aolet> {
 
 	@Autowired
 	EmployerEtiqueta1Repository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Etiqueta1> request) {
+	public boolean authorise(final Request<Aolet> request) {
 		assert request != null;
 		boolean result;
 		int id;
-		Etiqueta1 et1;
+		Aolet et1;
 		Job job;
 		Principal principal;
 		Employer employer;
@@ -41,19 +41,19 @@ public class EmployerEtiqueta1ShowService implements AbstractShowService<Employe
 		return result;
 	}
 	@Override
-	public void unbind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Model model) {
+	public void unbind(final Request<Aolet> request, final Aolet entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "atributoEtiqueta1");
+		request.unbind(entity, model, "text", "badge");
 		model.setAttribute("finalMode", entity.getJob().getActive());
 	}
 	@Override
-	public Etiqueta1 findOne(final Request<Etiqueta1> request) {
+	public Aolet findOne(final Request<Aolet> request) {
 		assert request != null;
 
-		Etiqueta1 result;
+		Aolet result;
 		int id;
 
 		String[] aux = request.getServletRequest().getQueryString().trim().split("=");

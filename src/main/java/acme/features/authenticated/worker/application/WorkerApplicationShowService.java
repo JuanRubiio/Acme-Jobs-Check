@@ -1,9 +1,11 @@
 
 package acme.features.authenticated.worker.application;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
@@ -42,7 +44,21 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation");
+		Aolet result;
+		int id;
+		Boolean b = false;
+		id = entity.getJob().getId();
+		String value = "";
+
+		result = this.repository.findEtiqueta1ToThisJob(id);
+		if (result != null && StringUtils.isNotBlank(result.getBadge())) {
+			value = result.getBadge();
+			b = true;
+		}
+
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		model.setAttribute("badger", value);
+		model.setAttribute("conf", b);
 	}
 
 	@Override

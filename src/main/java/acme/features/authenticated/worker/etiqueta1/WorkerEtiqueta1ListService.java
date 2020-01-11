@@ -6,39 +6,39 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.etiqueta1.Etiqueta1;
+import acme.entities.aolet.Aolet;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class WorkerEtiqueta1ListService implements AbstractListService<Worker, Etiqueta1> {
+public class WorkerEtiqueta1ListService implements AbstractListService<Worker, Aolet> {
 
 	@Autowired
 	private WorkerEtiqueta1Repository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Etiqueta1> request) {
+	public boolean authorise(final Request<Aolet> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Etiqueta1> request, final Etiqueta1 entity, final Model model) {
+	public void unbind(final Request<Aolet> request, final Aolet entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "atributoEtiqueta1");
+		request.unbind(entity, model, "text", "badge");
 	}
 
 	@Override
-	public Collection<Etiqueta1> findMany(final Request<Etiqueta1> request) {
+	public Collection<Aolet> findMany(final Request<Aolet> request) {
 		assert request != null;
-		Collection<Etiqueta1> result;
+		Collection<Aolet> result;
 
 		int id;
 

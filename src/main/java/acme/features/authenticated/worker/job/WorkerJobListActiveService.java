@@ -32,7 +32,7 @@ public class WorkerJobListActiveService implements AbstractListService<Worker, J
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "link", "active", "description", "ayuda");
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "link", "active", "description");
 
 	}
 
