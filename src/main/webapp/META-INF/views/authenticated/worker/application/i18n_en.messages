@@ -21,3 +21,4 @@ authenticated.worker.application.list.label.rejectedMessage = Message of the emp
 authenticated.worker.application.list.label.key = Password:
 
 worker.application.confirmationPass = The password must has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.
+worker.application.duplicatedReference = This reference already exists

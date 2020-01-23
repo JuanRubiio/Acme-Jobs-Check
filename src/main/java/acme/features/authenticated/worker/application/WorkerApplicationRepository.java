@@ -53,4 +53,7 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select m.job.id from Molet m")
 	List<Integer> findIdJobFromMolet();
+
+	@Query("select ua from Application ua where ua.referenceNumber = ?1")
+	Application findByReference(String reference);
 }
