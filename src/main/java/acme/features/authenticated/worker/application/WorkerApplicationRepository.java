@@ -50,4 +50,7 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select a.id from Job a where a.deadline > now() and a.status = 'published'")
 	List<Integer> findIdJobsActive();
+
+	@Query("select m.job.id from Molet m")
+	List<Integer> findIdJobFromMolet();
 }

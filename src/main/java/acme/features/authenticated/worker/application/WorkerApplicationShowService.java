@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.worker.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +44,18 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass");
+		int appId = request.getModel().getInteger("id");
+		Application app = this.repository.findOneById(appId);
+		Integer idJob = app.getJob().getId();
+
+		List<Integer> listIdJobsFromMolet = this.repository.findIdJobFromMolet();
+
+		for (Integer id : listIdJobsFromMolet) {
+			if (idJob.toString().equals(id.toString())) {
+				entity.setContieneMolet(true);
+			}
+		}
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass", "contieneMolet");
 	}
 
 	@Override

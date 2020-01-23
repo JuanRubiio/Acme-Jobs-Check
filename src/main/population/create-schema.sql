@@ -28,6 +28,7 @@
         `version` integer not null,
         `answer_worker` varchar(255),
         `cc` varchar(255),
+        `contiene_molet` bit,
         `key_pass` varchar(255),
         `last_update` datetime(6),
         `message_rejected` varchar(255),

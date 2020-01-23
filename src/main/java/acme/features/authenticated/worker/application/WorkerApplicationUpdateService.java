@@ -45,6 +45,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		entity.setContieneMolet(true);
 		request.bind(entity, errors);
 	}
 
@@ -55,8 +56,9 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert model != null;
 
+		entity.setContieneMolet(true);
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass");
-
+		entity.setContieneMolet(true);
 	}
 
 	@Override
@@ -67,6 +69,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
+		result.setContieneMolet(true);
 		return result;
 	}
 
@@ -112,6 +115,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 
 			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
 				errors.state(request, false, "key", "worker.application.confirmationPass");
+				entity.setContieneMolet(true);
 			}
 		}
 	}
@@ -121,6 +125,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert request != null;
 		assert entity != null;
 
+		entity.setContieneMolet(true);
 		this.repository.save(entity);
 	}
 
