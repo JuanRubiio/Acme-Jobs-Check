@@ -148,7 +148,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			}
 		}
 
-		if (entity.getActive() != null && entity.getActive() == true && custom.getSpamThreshold() != null) {
+		if (entity.getActive() != null && entity.getActive() == true) {
 
 			if (!"Published".equals(entity.getStatus())) {
 				errors.state(request, false, "active", "employer.job.statusnotpub");
