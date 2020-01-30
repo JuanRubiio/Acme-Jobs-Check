@@ -20,4 +20,4 @@ employer.job.duties.delete = A job can be deleted as long as dont have duties
 employer.job.statusnotpub = You cannot save a job in final mode if it is not in published status
 employer.job.porcenspam = You cannot save a job in final mode if it contains spam words
 employer.job.dutiescient = You cannot save a job in final mode if the duties dont sum up to 100% the weekly workload
-employer.job.molet.delete =  A job can be deleted as long as dont have etiqueta1
+employer.job.molet.delete =  A job can be deleted as long as dont have molet

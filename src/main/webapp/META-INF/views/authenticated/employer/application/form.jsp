@@ -57,5 +57,6 @@
 	<acme:form-submit code="authenticated.employer.application.form.label.worker" action="/employer/worker/show?id=${id}" method="get"/>
 	<acme:form-submit test="${command == 'show'}" code="authenticated.employer.application.form.button.update" action="/employer/application/update"/>
 	<acme:form-submit test="${command == 'update'}" code="authenticated.employer.application.form.button.update2" action="/employer/application/update"/>
+	
 </acme:form>
 

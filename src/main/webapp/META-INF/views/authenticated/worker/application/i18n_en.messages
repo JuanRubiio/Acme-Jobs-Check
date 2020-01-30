@@ -18,7 +18,7 @@ authenticated.worker.application.list.label.qualifications = Qualifications
 
 authenticated.worker.application.list.label.answerWorker = Answer:
 authenticated.worker.application.list.label.rejectedMessage = Message of the employer:
-authenticated.worker.application.list.label.key = Password:
+authenticated.worker.application.list.label.keyPass = Password:
 
-worker.application.confirmationPass = The password must has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.
+worker.application.confirmationPass = The password must has a minimum length of 10 characters and that it includes at least 1 letters, 1 digits, and 1 punctuation symbols.
 worker.application.duplicatedReference = This reference already exists
