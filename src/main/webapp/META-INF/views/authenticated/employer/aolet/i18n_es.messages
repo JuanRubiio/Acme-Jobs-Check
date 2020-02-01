@@ -1,0 +1,6 @@
+authenticated.employer.aolet.form.label.text = Texto:
+authenticated.employer.aolet.form.label.badge = Insignia:
+authenticated.employer.aolet.form.button.return = Volver
+authenticated.employer.aolet.form.button.update = Editar
+authenticated.employer.aolet.form.button.delete = Borrar
+authenticated.employer.aolet.form.button.create = Crear

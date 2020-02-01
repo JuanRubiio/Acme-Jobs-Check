@@ -22,3 +22,5 @@ authenticated.employer.application.form.label.answerWorker = Answer of the worke
 authenticated.employer.application.form.label.cc = Aolet password
 authenticated.employer.application.form.label.justification = If you rejected this application, you must have a mandatory justification
 authenticated.employer.application.form.badPassword = Wrong password
+
+authenticated.employer.application.form.label.badger = Badger

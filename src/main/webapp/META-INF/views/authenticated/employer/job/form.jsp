@@ -5,6 +5,7 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
 	<acme:form-textbox code="authenticated.employer.job.form.label.title" path="title"/>
+	<jstl:if test="${command != 'create'}">
  	<acme:form-select code="authenticated.employer.job.form.label.status" path="status">
  		<jstl:choose>
 			<jstl:when test="${status == 'Published' }">
@@ -25,6 +26,7 @@
 		<acme:form-option code="Draft" value="Draft" selected="${draftSelected}"/>
 		<acme:form-option code="Published" value="Published" selected="${publishedSelected}"/>
 	</acme:form-select>
+	</jstl:if>
 	<acme:form-moment code="authenticated.employer.job.form.label.deadline" path="deadline"/>
 	<acme:form-url code="authenticated.employer.job.form.label.link" path="link"/>
 	<acme:form-money code="authenticated.employer.job.form.label.salary" path="salary"/>
@@ -48,7 +50,7 @@
 	<jstl:if test="${!active}">
 	<acme:form-submit code="authenticated.employer.job.form.label.create.duty" action="/employer/duty/create?id=${id}" method="get" />
 		<jstl:if test="${ayuda}">
-			<acme:form-submit code="authenticated.employer.job.form.label.create.etiqueta1" action="/employer/aolet/create?id=${id}" method="get" />
+			<acme:form-submit code="authenticated.employer.job.form.label.create.aolet" action="/employer/aolet/create?id=${id}" method="get" />
 		</jstl:if>
 	</jstl:if>	
 	<jstl:if test="${active}">
@@ -58,7 +60,7 @@
 	<acme:form-submit code="authenticated.employer.job.form.label.active.duty" action="/employer/duty/list?id=${id}" method="get"/>
 	<jstl:if test="${!ayuda}">
  	<%-- Cambiar para que salga directamente el show --%>
-		<acme:form-submit code="authenticated.employer.job.form.label.active.etiqueta1" action="/employer/aolet/show?id=${id}" method="get"/>
+		<acme:form-submit code="authenticated.employer.job.form.label.active.aolet" action="/employer/aolet/show?id=${id}" method="get"/>
 	</jstl:if>
 	
 </jstl:if>	

@@ -45,7 +45,7 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert model != null;
 
 		int jobId = request.getModel().getInteger("id");
-		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Aolet e = this.repository.findAoletToThisJob(jobId);
 		Boolean b = false;
 		if (e == null) {
 			b = true;

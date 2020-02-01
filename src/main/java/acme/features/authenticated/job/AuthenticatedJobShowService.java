@@ -44,7 +44,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert entity != null;
 		assert model != null;
 		int jobId = request.getModel().getInteger("id");
-		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Aolet e = this.repository.findAoletToThisJob(jobId);
 		Boolean b = false;
 		if (e == null) {
 			b = true;

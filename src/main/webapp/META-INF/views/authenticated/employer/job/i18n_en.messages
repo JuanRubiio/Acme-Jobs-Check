@@ -10,8 +10,8 @@ authenticated.employer.job.form.button.return = Return
 authenticated.employer.job.form.label.active.duty = Duties
 authenticated.employer.job.form.label.application = Applications
 employer.job.duplicatedReference = Duplicated Reference
-authenticated.employer.job.form.label.active.etiqueta1 = Aolet
-authenticated.employer.job.form.label.create.etiqueta1 = Create Aolet
+authenticated.employer.job.form.label.active.aolet = Aolet
+authenticated.employer.job.form.label.create.aolet = Create Aolet
 
 employer.job.finalmode = Job In Final Mode
 employer.job.applications =  A job can be deleted as long as no worker has applied for it
@@ -20,4 +20,4 @@ employer.job.duties.delete = A job can be deleted as long as dont have duties
 employer.job.statusnotpub = You cannot save a job in final mode if it is not in published status
 employer.job.porcenspam = You cannot save a job in final mode if it contains spam words
 employer.job.dutiescient = You cannot save a job in final mode if the duties dont sum up to 100% the weekly workload
-employer.job.etiqueta1.delete =  A job can be deleted as long as dont have aolet
+employer.job.aolet.delete =  A job can be deleted as long as dont have aolet

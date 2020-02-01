@@ -1,0 +1,4 @@
+authenticated.employer.aolet.form.label.text = Text:
+authenticated.employer.aolet.form.label.badge = Badge:
+authenticated.employer.aolet.form.button.return = Return
+authenticated.employer.aolet.error = The text must be lower than 256 words

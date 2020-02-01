@@ -50,7 +50,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		id = entity.getJob().getId();
 		String value = "";
 
-		result = this.repository.findEtiqueta1ToThisJob(id);
+		result = this.repository.findAoletToThisJob(id);
 		if (result != null && StringUtils.isNotBlank(result.getBadge())) {
 			value = result.getBadge();
 			b = true;

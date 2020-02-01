@@ -19,7 +19,7 @@
 	</jstl:if>
 	<acme:form-hidden path="id"/>
 	<jstl:if test="${ confirmation==cc && conf }">	
-		<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="badger" readonly="true"/>
+		<acme:form-textbox code="authenticated.employer.application.form.label.badger" path="badger" readonly="true"/>
 	</jstl:if>
 
 

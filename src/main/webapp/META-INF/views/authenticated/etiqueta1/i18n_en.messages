@@ -1,4 +1,0 @@
-authenticated.employer.etiqueta1.form.label.text = Text:
-authenticated.employer.etiqueta1.form.label.atributoEtiqueta1 = Badge:
-authenticated.employer.etiqueta1.form.button.return = Return
-authenticated.employer.etiqueta1.error = The text must be lower than 256 words

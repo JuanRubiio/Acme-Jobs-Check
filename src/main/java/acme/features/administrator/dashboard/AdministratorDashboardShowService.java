@@ -31,7 +31,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "totalNumberCompanyRecords", "totalNumberAnnonuncements", "totalNumberInvestorRecords", "minRewardActiveRequest", "maxRewardActiveRequest", "avgRewardActiveRequest", "desvRewardActiveRequest", "minRewardActiveOffer",
-			"maxRewardActiveOffer", "avgRewardActiveOffer", "desvRewardActiveOffer", "avgNumberJobOEmployer", "avgNumberApplEmployer", "avgNumberApplWorker", "ratioJobsEtiqueta1", "ratioApplicationAnswer", "ratioApplicationConfirmation");
+			"maxRewardActiveOffer", "avgRewardActiveOffer", "desvRewardActiveOffer", "avgNumberJobOEmployer", "avgNumberApplEmployer", "avgNumberApplWorker", "ratioJobsAolet", "ratioApplicationAnswer", "ratioApplicationConfirmation");
 
 	}
 
@@ -54,7 +54,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double avgNumberJobOEmployer = this.repository.getavgNumberJobOEmployer();
 		Double avgNumberApplEmployer = this.repository.getavgNumberApplEmployer();
 		Double avgNumberApplWorker = this.repository.getavgNumberApplWorker();
-		Double ratioJobsEtiqueta1 = this.repository.getRatioJobsEtiqueta1();
+		Double ratioJobsAolet = this.repository.getRatioJobsAolet();
 		Double ratioApplicationAnswer = this.repository.getRatioApplicationAnswer();
 		Double ratioApplicationConfirmation = this.repository.getRatioApplicationConfirmation();
 
@@ -72,7 +72,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		res.setAvgNumberJobOEmployer(avgNumberJobOEmployer);
 		res.setAvgNumberApplEmployer(avgNumberApplEmployer);
 		res.setAvgNumberApplWorker(avgNumberApplWorker);
-		res.setRatioJobsEtiqueta1(ratioJobsEtiqueta1);
+		res.setRatioJobsAolet(ratioJobsAolet);
 		res.setRatioApplicationAnswer(ratioApplicationAnswer);
 		res.setRatioApplicationConfirmation(ratioApplicationConfirmation);
 

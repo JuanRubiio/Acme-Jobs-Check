@@ -53,14 +53,14 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		id = entity.getJob().getId();
 		String value = "";
 
-		result = this.repository.findEtiqueta1ToThisJob(id);
+		result = this.repository.findAoletToThisJob(id);
 		if (result != null && StringUtils.isNotBlank(result.getBadge())) {
-			value = result.getBadge();
+
 			b = true;
 		}
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
-		model.setAttribute("badger", value);
+
 		model.setAttribute("conf", b);
 	}
 

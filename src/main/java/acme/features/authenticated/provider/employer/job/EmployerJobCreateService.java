@@ -33,7 +33,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "active");
+		request.bind(entity, errors, "status", "active");
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		Boolean b = false;
 
-		request.unbind(entity, model, "title", "deadline", "reference", "status", "salary", "link", "description", "active");
+		request.unbind(entity, model, "title", "deadline", "reference", "salary", "link", "description");
 		model.setAttribute("ayuda", b);
 	}
 
@@ -57,6 +57,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		res = new Job();
 		res.setEmployer(employer);
 		res.setActive(false);
+		res.setStatus("Draft");
 
 		return res;
 	}

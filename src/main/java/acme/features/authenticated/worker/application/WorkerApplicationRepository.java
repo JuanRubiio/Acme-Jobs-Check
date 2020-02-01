@@ -53,5 +53,8 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 	List<Integer> findIdJobsActive();
 
 	@Query("select a from Aolet a where a.job.id =?1")
-	Aolet findEtiqueta1ToThisJob(int id);
+	Aolet findAoletToThisJob(int id);
+
+	@Query("select ua from Application ua where ua.referenceNumber = ?1")
+	Application findByReference(String reference);
 }

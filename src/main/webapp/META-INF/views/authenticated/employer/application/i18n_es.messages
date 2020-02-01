@@ -22,3 +22,5 @@ authenticated.employer.application.form.label.answerWorker = Respuesta del traba
 authenticated.employer.application.form.label.cc = Contraseña del boleto
 authenticated.employer.application.form.label.justification = Si rechazó esta solicitud, debe tener una justificación obligatoria
 authenticated.employer.application.form.badPassword = Contraseña incorrecta
+
+authenticated.employer.application.form.label.badger = Insignia

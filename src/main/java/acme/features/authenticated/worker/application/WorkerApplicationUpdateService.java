@@ -60,7 +60,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		id = entity.getJob().getId();
 		String value = "";
 
-		result = this.repository.findEtiqueta1ToThisJob(id);
+		result = this.repository.findAoletToThisJob(id);
 		if (StringUtils.isNotBlank(result.getBadge())) {
 			value = result.getBadge();
 			b = true;

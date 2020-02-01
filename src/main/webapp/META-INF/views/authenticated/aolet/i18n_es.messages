@@ -1,0 +1,4 @@
+authenticated.employer.aolet.form.label.text = Texto:
+authenticated.employer.aolet.form.label.badge = Insignia:
+authenticated.employer.aolet.form.button.return = Volver
+authenticated.employer.aolet.error = El texto debe ser inferior a 256 palabras.

@@ -21,6 +21,6 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 	Collection<Job> getAllJobToWorker(int id);
 
 	@Query("select a from Aolet a where a.job.id =?1")
-	Aolet findEtiqueta1ToThisJob(int id);
+	Aolet findAoletToThisJob(int id);
 
 }

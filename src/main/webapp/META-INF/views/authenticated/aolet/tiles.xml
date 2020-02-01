@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+			"-//Apache Software  Foundation/DTD Tiles Configurations 3.0//EN"
+			"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+			
+<tiles-definitions>
+	
+	<definition name="authenticated/aolet/form" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/aolet/form.jsp" />
+	</definition>
+	
+	<definition name="authenticated/aolet/list" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/aolet/list.jsp" />
+	</definition>
+
+</tiles-definitions>			

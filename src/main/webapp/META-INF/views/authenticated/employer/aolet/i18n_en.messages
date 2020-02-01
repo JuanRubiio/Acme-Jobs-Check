@@ -1,0 +1,6 @@
+authenticated.employer.aolet.form.label.text = Text:
+authenticated.employer.aolet.form.label.badge = Badge:
+authenticated.employer.aolet.form.button.return = Return
+authenticated.employer.aolet.form.button.update = Update
+authenticated.employer.aolet.form.button.delete = Delete
+authenticated.employer.aolet.form.button.create = Create

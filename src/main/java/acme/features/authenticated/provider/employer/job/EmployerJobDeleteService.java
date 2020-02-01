@@ -61,7 +61,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert model != null;
 		int jobId = request.getModel().getInteger("id");
-		Aolet e = this.repository.findEtiqueta1ToThisJob(jobId);
+		Aolet e = this.repository.findAoletToThisJob(jobId);
 		Boolean b = false;
 		if (e == null) {
 			b = true;
@@ -102,9 +102,9 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 			errors.state(request, false, "title", "employer.job.duties.delete");
 
 		}
-		Aolet e = this.repository.findEtiqueta1ToThisJob(entity.getId());
+		Aolet e = this.repository.findAoletToThisJob(entity.getId());
 		if (e != null) {
-			errors.state(request, false, "title", "employer.job.etiqueta1.delete");
+			errors.state(request, false, "title", "employer.job.aolet.delete");
 
 		}
 	}

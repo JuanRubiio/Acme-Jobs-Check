@@ -38,5 +38,5 @@ public interface EmployerJobRepository extends AbstractRepository {
 	List<Duty> findAllDutiesToThisJob(int id);
 
 	@Query("select a from Aolet a where a.job.id =?1")
-	Aolet findEtiqueta1ToThisJob(int id);
+	Aolet findAoletToThisJob(int id);
 }
