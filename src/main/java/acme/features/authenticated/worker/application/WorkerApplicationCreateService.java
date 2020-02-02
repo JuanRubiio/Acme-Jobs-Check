@@ -83,6 +83,9 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		if (StringUtils.isNotBlank(entity.getBadge())) {
 			errors.state(request, b, "badge", "worker.application.notAolet");
 		}
+		if (StringUtils.isNotBlank(entity.getAnswerWorker())) {
+			errors.state(request, b, "answerWorker", "worker.application.notAolet");
+		}
 	}
 
 	@Override

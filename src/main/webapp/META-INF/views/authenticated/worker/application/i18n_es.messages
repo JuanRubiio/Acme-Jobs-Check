@@ -17,7 +17,7 @@ authenticated.worker.application.list.label.qualifications = Calificaciones
 authenticated.worker.application.list.button.return = Volver
 
 
-authenticated.worker.application.list.label.answerWorker = Respuesta:
+authenticated.worker.application.list.label.answerWorker = Respuesta al boleto:
 authenticated.worker.application.list.label.rejectedMessage = Mensaje del empresario:
 authenticated.worker.application.list.label.confirmation = Contraseña:
 worker.application.confirmationPass = La contraseña debe tener una longitud mínima de 10 caracteres y debe incluir al menos una letra, un dígito y un símbolo de puntuación
