@@ -572,7 +572,7 @@
 		<property name="salary" value="200.25 €"/>		
 		<property name="link" value="https://www.everis.com/global/en"/>
 		<property name="description" value="Esta es la descripcion del job2"/>
-		<property name="active" value="false"/>
+		<property name="active" value="true"/>
 		<property name="employer" ref="employerEmployer"/>
 	</bean> 
 	<bean id="job3" class="acme.entities.job.Job">
@@ -676,7 +676,7 @@
 	</bean> 
 	<bean id="duty2" class="acme.entities.duty.Duty">
 		<property name="title" value="titulo de duty2"/>
-		<property name="percentage" value="10.25"/>		
+		<property name="percentage" value="100.00"/>		
 		<property name="description" value="Esta es la descripcion del duty2"/>
 		<property name="job" ref="job2"/>
 	</bean> 

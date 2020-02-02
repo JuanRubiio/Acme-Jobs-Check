@@ -12,14 +12,15 @@
 	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command != 'create'}"/>
 	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
-		
-		<jstl:if test="${aolet == true || aolet == null }">
+	</jstl:if>	
+		<jstl:if test="${aolet == null || aolet == true}">
 			<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
+			<acme:form-url code="authenticated.worker.application.list.label.badger" path="badge"/>
 			<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
 			<acme:form-submit test="${command == 'update'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
 			<acme:form-submit test="${command == 'show'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
 		</jstl:if>
-	</jstl:if>	
+
 
 	
 	

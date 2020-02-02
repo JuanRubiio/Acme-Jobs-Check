@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
@@ -62,8 +63,16 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		Aolet result;
+		int id;
+		id = entity.getJob().getId();
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
+		result = this.repository.findAoletToThisJob(id);
+		if (result != null) {
+			entity.setAolet(true);
+		}
+
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc", "badge", "aolet");
 
 	}
 

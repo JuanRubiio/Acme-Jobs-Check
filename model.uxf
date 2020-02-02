@@ -1074,6 +1074,7 @@ style=wordwrap</panel_attributes>
 + answerWorker: String {}
 + confirmation: String {}
 + cc: String {}
++ badger: String {}
 + worker: Worker {NotNull, Valid, ManyToOne(optional=false)}
 + job: Job {NotNull, Valid, ManyToOne(optional=false)}</panel_attributes>
     <additional_attributes/>

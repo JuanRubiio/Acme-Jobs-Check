@@ -21,4 +21,6 @@ authenticated.worker.application.list.label.rejectedMessage = Message of the emp
 authenticated.worker.application.list.label.confirmation = Password:
 
 worker.application.confirmationPass = The password must has a minimum length of 10 characters and that it includes at least a letters, a digits, and a punctuation symbols
-worker.application.notAolet = this job don't have aolet
+worker.application.notAolet = This job don't have aolet
+authenticated.worker.application.list.label.badger = Badger
+worker.application.confirmationPassBadge = If there is no badge, you do not need a password

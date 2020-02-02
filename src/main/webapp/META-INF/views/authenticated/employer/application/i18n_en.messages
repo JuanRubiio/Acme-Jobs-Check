@@ -4,7 +4,7 @@ authenticated.employer.application.form.label.status = Status
 authenticated.employer.application.form.label.statement = Statement
 authenticated.employer.application.form.label.skills = Skills
 authenticated.employer.application.form.label.qualifications = Qualifications
-authenticated.employer.application.form.label.messageRejected = Response:
+authenticated.employer.application.form.label.messageRejected = Response
 
 authenticated.employer.application.form.label.worker = Worker
 authenticated.employer.application.form.button.return = Return
@@ -24,3 +24,4 @@ authenticated.employer.application.form.label.justification = If you rejected th
 authenticated.employer.application.form.badPassword = Wrong password
 
 authenticated.employer.application.form.label.badger = Badger
+

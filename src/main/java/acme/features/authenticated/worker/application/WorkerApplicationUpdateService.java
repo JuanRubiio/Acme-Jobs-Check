@@ -1,8 +1,7 @@
 
 package acme.features.authenticated.worker.application;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,16 +59,13 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		Aolet result;
 		int id;
 		id = entity.getJob().getId();
-		String value = "";
 
 		result = this.repository.findAoletToThisJob(id);
-		if (StringUtils.isNotBlank(result.getBadge())) {
-			value = result.getBadge();
-
+		if (result != null) {
+			entity.setAolet(true);
 		}
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
-		model.setAttribute("badger", value);
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc", "badge");
 
 	}
 
@@ -90,64 +86,31 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		Pattern pattern;
+		pattern = Pattern.compile("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$");
+
+		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
+			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
+		}
+		if (StringUtils.isNotBlank(entity.getConfirmation()) && !StringUtils.isNotBlank(entity.getBadge())) {
+			errors.state(request, false, "confirmation", "worker.application.confirmationPassBadge");
+		}
+		Aolet result;
+		int id;
+		Boolean b = false;
+		id = entity.getJob().getId();
+
+		result = this.repository.findAoletToThisJob(id);
+		if (result != null) {
+
+			b = true;
+		}
+
 		if (StringUtils.isNotBlank(entity.getConfirmation())) {
-			Aolet result;
-			int id;
-			Boolean b = false;
-			id = entity.getJob().getId();
-
-			result = this.repository.findAoletToThisJob(id);
-			if (result != null && StringUtils.isNotBlank(result.getBadge())) {
-
-				b = true;
-			}
 			errors.state(request, b, "confirmation", "worker.application.notAolet");
-
-			//		Pattern pattern;
-			//		pattern = Pattern.compile("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,}$");
-			//
-			//		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
-			//			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
-			//		}
-			if (b) {
-				int MIN_CARACTERES = 10;
-				int MIN_LETRAS = 1;
-				int MIN_DIGITOS = 1;
-				int MIN_SIMBOLOS = 1;
-
-				int tot_digitos = 0;
-				int tot_letras = 0;
-				int tot_caracteres = 0;
-				int tot_simbolos = 0;
-
-				List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
-				if (StringUtils.isNotBlank(entity.getConfirmation()) && entity.getConfirmation().length() != 0) {
-					for (int i = 0; i < entity.getConfirmation().length(); i++) {
-						char a = entity.getConfirmation().charAt(i);
-
-						if (Character.isDigit(a)) {
-							tot_digitos++;
-							tot_caracteres++;
-						}
-						if (Character.isLetter(a)) {
-							tot_letras++;
-							tot_caracteres++;
-						}
-						for (String symbol : list) {
-							String s = Character.toString(a);
-							if (symbol.equals(s)) {
-								tot_simbolos++;
-								tot_caracteres++;
-							}
-						}
-
-					}
-
-					if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-						errors.state(request, false, "confirmation", "worker.application.confirmationPass");
-					}
-				}
-			}
+		}
+		if (StringUtils.isNotBlank(entity.getBadge())) {
+			errors.state(request, b, "badge", "worker.application.notAolet");
 		}
 	}
 

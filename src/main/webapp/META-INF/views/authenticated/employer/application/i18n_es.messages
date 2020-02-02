@@ -5,7 +5,7 @@ authenticated.employer.application.form.label.statement = Declaración
 authenticated.employer.application.form.label.skills = Habilidades
 authenticated.employer.application.form.label.qualifications = Calificaciones
 authenticated.employer.application.form.label.worker = Trabajador
-authenticated.employer.application.form.label.messageRejected = Respuesta:
+authenticated.employer.application.form.label.messageRejected = Respuesta
 
 authenticated.employer.application.form.button.return = Volver
 authenticated.employer.application.form.button.update = Editar

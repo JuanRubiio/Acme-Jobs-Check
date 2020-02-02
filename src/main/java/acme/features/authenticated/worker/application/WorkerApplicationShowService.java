@@ -52,7 +52,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 			entity.setAolet(true);
 		}
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc", "aolet");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc", "badge");
 	}
 
 	@Override

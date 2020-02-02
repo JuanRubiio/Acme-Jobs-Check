@@ -3,10 +3,13 @@ package acme.features.authenticated.worker.application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Worker;
@@ -53,6 +56,33 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		isDuplicated = this.repository.findByReference(entity.getReferenceNumber()) != null;
 		errors.state(request, !isDuplicated, "referenceNumber", "worker.application.duplicatedReference");
 
+		Pattern pattern;
+		pattern = Pattern.compile("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$");
+
+		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
+			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
+		}
+		if (StringUtils.isNotBlank(entity.getConfirmation()) && !StringUtils.isNotBlank(entity.getBadge())) {
+			errors.state(request, false, "confirmation", "worker.application.confirmationPassBadge");
+		}
+
+		Aolet result;
+		int id;
+		Boolean b = false;
+		id = entity.getJob().getId();
+
+		result = this.repository.findAoletToThisJob(id);
+		if (result != null) {
+
+			b = true;
+		}
+
+		if (StringUtils.isNotBlank(entity.getConfirmation())) {
+			errors.state(request, b, "confirmation", "worker.application.notAolet");
+		}
+		if (StringUtils.isNotBlank(entity.getBadge())) {
+			errors.state(request, b, "badge", "worker.application.notAolet");
+		}
 	}
 
 	@Override
@@ -61,7 +91,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker", "confirmation");
+		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate");
 	}
 
 	@Override
@@ -70,9 +100,17 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		Aolet result;
+		int id;
+		id = entity.getJob().getId();
+		result = this.repository.findAoletToThisJob(id);
+		if (result != null) {
+			entity.setAolet(true);
+		}
 
-		request.unbind(entity, model, "referenceNumber", "statement", "skills", "qualifications");
+		request.unbind(entity, model, "referenceNumber", "statement", "skills", "qualifications", "answerWorker", "confirmation", "badge", "aolet");
 		model.setAttribute("id", entity.getJob().getId());
+
 	}
 
 	@Override

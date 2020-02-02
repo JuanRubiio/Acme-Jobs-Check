@@ -22,3 +22,5 @@ authenticated.worker.application.list.label.rejectedMessage = Mensaje del empres
 authenticated.worker.application.list.label.confirmation = Contraseña:
 worker.application.confirmationPass = La contraseña debe tener una longitud mínima de 10 caracteres y debe incluir al menos una letra, un dígito y un símbolo de puntuación
 worker.application.notAolet = Este trabajo no tiene boleto 
+authenticated.worker.application.list.label.badger = Insignia
+worker.application.confirmationPassBadge = Si no hay insignia, no necesita contraseña
