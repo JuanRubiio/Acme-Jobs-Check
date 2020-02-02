@@ -68,6 +68,8 @@ public class Application extends DomainEntity {
 
 	private String				cc;
 
+	private boolean				aolet;
+
 	//------
 
 	@NotNull

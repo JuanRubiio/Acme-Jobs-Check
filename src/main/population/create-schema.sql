@@ -36,6 +36,7 @@
        `id` integer not null,
         `version` integer not null,
         `answer_worker` varchar(255),
+        `aolet` bit not null,
         `cc` varchar(255),
         `confirmation` varchar(255),
         `last_update` datetime(6),

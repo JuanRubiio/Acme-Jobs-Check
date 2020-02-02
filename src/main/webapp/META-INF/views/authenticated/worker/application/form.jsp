@@ -13,25 +13,18 @@
 	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
 		
-	<jstl:if test="${cc!=''}">
-		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-		<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
-	</jstl:if>
-	</jstl:if>
-	<acme:form-hidden path="id"/>
-	<jstl:if test="${cc!='' && confirmation==cc}">	
-		<acme:form-textbox code="authenticated.employer.application.form.label.badger" path="badger" readonly="true"/>
-	</jstl:if>
-
+		<jstl:if test="${aolet == true || aolet == null }">
+			<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
+			<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
+			<acme:form-submit test="${command == 'update'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
+			<acme:form-submit test="${command == 'show'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
+		</jstl:if>
+	</jstl:if>	
 
 	
 	
 	<acme:form-return code="authenticated.worker.application.form.button.return"/>
 	<acme:form-submit test="${command == 'create'}" code="authenticated.worker.application.form.button.create" action="/worker/application/create"/>
-	<jstl:if test="${status!='Pending'}">
-		<acme:form-submit test="${command == 'show'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
-		<acme:form-submit test="${command == 'update'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
-	</jstl:if>
 	
 </acme:form>
 

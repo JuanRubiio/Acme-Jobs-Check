@@ -95,6 +95,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		res.setAnswerWorker(answerWorker);
 		String confirmation = "";
 		res.setConfirmation(confirmation);
+		res.setAolet(false);
 		return res;
 
 	}
