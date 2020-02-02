@@ -60,7 +60,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	//	@Query("select avg(select count(a.answerWorker) from Application a where a.id = ua.id) from Application ua")
 	//	Double getRatioApplicationAnswer();
 
-	@Query("select avg(select a.cc !='' from Application a where a.id = ua.id) from Application ua")
+	@Query("select avg(select a.confirmation !='' from Application a where a.id = ua.id) from Application ua")
 	Double getRatioApplicationConfirmation();
 
 	//	@Query("select avg(select count(a.confirmation) from Application a where a.id = ua.id) from Application ua")
