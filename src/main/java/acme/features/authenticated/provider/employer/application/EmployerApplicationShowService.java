@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.provider.employer.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +48,18 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass", "cc");
+		int appId = request.getModel().getInteger("id");
+		Application app = this.repository.findOneById(appId);
+		Integer idJob = app.getJob().getId();
+
+		List<Integer> listIdJobsFromMolet = this.repository.findIdJobFromMolet();
+
+		for (Integer id : listIdJobsFromMolet) {
+			if (idJob.toString().equals(id.toString())) {
+				entity.setContieneMolet(true);
+			}
+		}
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass", "cc", "contieneMolet");
 	}
 
 	@Override

@@ -44,4 +44,7 @@ public interface EmployerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a where a.job.employer.id = ?1 order by a.status asc")
 	List<Application> orderApplicationToThisEmployer(int id);
+
+	@Query("select m.job.id from Molet m")
+	List<Integer> findIdJobFromMolet();
 }

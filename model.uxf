@@ -1060,7 +1060,7 @@ style=wordwrap</panel_attributes>
       <x>560</x>
       <y>616</y>
       <w>343</w>
-      <h>168</h>
+      <h>175</h>
     </coordinates>
     <panel_attributes>Aplication
 --
@@ -1073,8 +1073,9 @@ style=wordwrap</panel_attributes>
 + qualifications: String {NotBlank} 
 + messageRejected: String {}
 + answerWorker: String {}
-+ key: String {}
++ keyPass: String {}
 + cc: String {}
++ contieneMolet: Boolean {}
 + worker: Worker {NotNull, Valid, ManyToOne(optional=false)}
 + job: Job {NotNull, Valid, ManyToOne(optional=false)}</panel_attributes>
     <additional_attributes/>
@@ -1218,7 +1219,7 @@ style=wordwrap</panel_attributes>
     <panel_attributes>Molet
 --
 + text: String {NotBlank,Length(min=1,max=100)}
-+ key: String {URL}
++ keyAt: String {URL}
 + job: Job {NotNull, Valid, OneToOne(optional=false)}
 
 </panel_attributes>
