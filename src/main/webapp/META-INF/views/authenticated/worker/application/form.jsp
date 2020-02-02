@@ -12,13 +12,14 @@
 	<acme:form-textbox code="authenticated.worker.application.form.label.qualifications" path="qualifications" readonly="${command != 'create'}"/>
 	<jstl:if test="${messageRejected!=null && status!='Pending'}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
+		
+	<jstl:if test="${cc!=''}">
 		<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-	<jstl:if test="${ conf }">
 		<acme:form-password code="authenticated.worker.application.list.label.confirmation" path="confirmation"/>
 	</jstl:if>
 	</jstl:if>
 	<acme:form-hidden path="id"/>
-	<jstl:if test="${ confirmation==cc && conf }">	
+	<jstl:if test="${cc!='' && confirmation==cc}">	
 		<acme:form-textbox code="authenticated.employer.application.form.label.badger" path="badger" readonly="true"/>
 	</jstl:if>
 

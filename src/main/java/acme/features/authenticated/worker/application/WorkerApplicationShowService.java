@@ -46,19 +46,16 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 
 		Aolet result;
 		int id;
-		Boolean b = false;
 		id = entity.getJob().getId();
 		String value = "";
 
 		result = this.repository.findAoletToThisJob(id);
 		if (result != null && StringUtils.isNotBlank(result.getBadge())) {
 			value = result.getBadge();
-			b = true;
 		}
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
 		model.setAttribute("badger", value);
-		model.setAttribute("conf", b);
 	}
 
 	@Override

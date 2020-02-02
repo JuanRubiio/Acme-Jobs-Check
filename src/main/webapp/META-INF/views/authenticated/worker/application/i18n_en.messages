@@ -20,4 +20,5 @@ authenticated.worker.application.list.label.answerWorker = Answer:
 authenticated.worker.application.list.label.rejectedMessage = Message of the employer:
 authenticated.worker.application.list.label.confirmation = Password:
 
-worker.application.confirmationPass = The password must has a minimum length of 8 characters and that it includes at least 5 letters, 2 digits, and 1 punctuation symbols.
+worker.application.confirmationPass = The password must has a minimum length of 10 characters and that it includes at least a letters, a digits, and a punctuation symbols
+worker.application.notAolet = this job don't have aolet

@@ -56,19 +56,18 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 
 		Aolet result;
 		int id;
-		Boolean b = false;
 		id = entity.getJob().getId();
 		String value = "";
 
 		result = this.repository.findAoletToThisJob(id);
 		if (StringUtils.isNotBlank(result.getBadge())) {
 			value = result.getBadge();
-			b = true;
+
 		}
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
 		model.setAttribute("badger", value);
-		model.setAttribute("conf", b);
+
 	}
 
 	@Override
@@ -87,13 +86,6 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		//		Pattern pattern;
-		//		pattern = Pattern.compile("^(?=.*[A-Za-z]){5,}(?=.*\\d){2,}(?=.*[,.;:¿\\(\\)\\[\\]\\\"\\-_¨\\/&]){1,}[A-Za-z\\d,.;:¿\\(\\)\\[\\]\\\"\\-_¨\\/&]{8,}$");
-		//
-		//		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
-		//			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
-		//		}
 
 		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getConfirmation()) && !entity.getCc().equals(entity.getConfirmation())) {
 			errors.state(request, false, "confirmation", "authenticated.employer.application.form.badPassword");

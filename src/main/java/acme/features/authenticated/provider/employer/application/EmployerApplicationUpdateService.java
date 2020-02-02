@@ -65,21 +65,9 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		Aolet result;
-		int id;
-		Boolean b = false;
-		id = entity.getJob().getId();
-		String value = "";
-
-		result = this.repository.findAoletToThisJob(id);
-		if (StringUtils.isNotBlank(result.getBadge())) {
-			value = result.getBadge();
-			b = true;
-		}
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
-		model.setAttribute("badger", value);
-		model.setAttribute("conf", b);
+
 	}
 
 	@Override
@@ -107,45 +95,65 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		if (entity.getStatus().contains(sr) && entity.getMessageRejected() == "") {
 			errors.state(request, false, "messageRejected", "authenticated.employer.application.form.label.justification");
 		}
+		if (StringUtils.isNotBlank(entity.getCc())) {
+			Aolet result;
+			int id;
+			Boolean b = false;
+			id = entity.getJob().getId();
 
-		int MIN_CARACTERES = 10;
-		int MIN_LETRAS = 1;
-		int MIN_DIGITOS = 1;
-		int MIN_SIMBOLOS = 1;
+			result = this.repository.findAoletToThisJob(id);
+			if (result != null && StringUtils.isNotBlank(result.getBadge())) {
 
-		int tot_digitos = 0;
-		int tot_letras = 0;
-		int tot_caracteres = 0;
-		int tot_simbolos = 0;
+				b = true;
+			}
+			errors.state(request, b, "cc", "worker.application.notAolet");
 
-		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
-		if (entity.getCc().length() != 0) {
-			for (int i = 0; i < entity.getCc().length(); i++) {
-				char a = entity.getCc().charAt(i);
+			//		Pattern pattern;
+			//		pattern = Pattern.compile("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,}$");
+			//
+			//		if (StringUtils.isNotBlank(entity.getConfirmation()) && !pattern.matcher(entity.getConfirmation()).matches()) {
+			//			errors.state(request, false, "confirmation", "worker.application.confirmationPass");
+			//		}
+			if (b) {
+				int MIN_CARACTERES = 10;
+				int MIN_LETRAS = 1;
+				int MIN_DIGITOS = 1;
+				int MIN_SIMBOLOS = 1;
 
-				if (Character.isDigit(a)) {
-					tot_digitos++;
-					tot_caracteres++;
-				}
-				if (Character.isLetter(a)) {
-					tot_letras++;
-					tot_caracteres++;
-				}
-				for (String symbol : list) {
-					String s = Character.toString(a);
-					if (symbol.equals(s)) {
-						tot_simbolos++;
-						tot_caracteres++;
+				int tot_digitos = 0;
+				int tot_letras = 0;
+				int tot_caracteres = 0;
+				int tot_simbolos = 0;
+
+				List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
+				if (StringUtils.isNotBlank(entity.getCc()) && entity.getCc().length() != 0) {
+					for (int i = 0; i < entity.getCc().length(); i++) {
+						char a = entity.getCc().charAt(i);
+
+						if (Character.isDigit(a)) {
+							tot_digitos++;
+							tot_caracteres++;
+						}
+						if (Character.isLetter(a)) {
+							tot_letras++;
+							tot_caracteres++;
+						}
+						for (String symbol : list) {
+							String s = Character.toString(a);
+							if (symbol.equals(s)) {
+								tot_simbolos++;
+								tot_caracteres++;
+							}
+						}
+
+					}
+
+					if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
+						errors.state(request, false, "cc", "worker.application.confirmationPass");
 					}
 				}
-
-			}
-
-			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-				errors.state(request, false, "cc", "worker.application.confirmationPass");
 			}
 		}
-
 	}
 
 	@Override

@@ -1,11 +1,9 @@
 
 package acme.features.authenticated.provider.employer.application;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.aolet.Aolet;
 import acme.entities.applications.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
@@ -47,21 +45,9 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		Aolet result;
-		int id;
-		Boolean b = false;
-		id = entity.getJob().getId();
-		String value = "";
-
-		result = this.repository.findAoletToThisJob(id);
-		if (result != null && StringUtils.isNotBlank(result.getBadge())) {
-
-			b = true;
-		}
 
 		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "confirmation", "cc");
 
-		model.setAttribute("conf", b);
 	}
 
 	@Override

@@ -40,12 +40,11 @@
 	<acme:form-textbox code="authenticated.employer.application.form.label.messageRejected" path="messageRejected"/>
 	<acme:form-hidden path="confirmation"/>
 	
-		<jstl:if test="${((status=='Rejected' && messageRejected!='') || status=='Accepted') && answerWorker!=''}">	
+	<jstl:if test="${(status=='Rejected' || status=='Accepted') && answerWorker!='' && command != 'update'}">	
 		<acme:form-textbox code="authenticated.employer.application.form.label.answerWorker" path="answerWorker" readonly="true"/>
-		</jstl:if>
-		<jstl:if test="${conf}">
-			<acme:form-password code="authenticated.employer.application.form.label.cc" path="cc"/>
-		</jstl:if>
+	</jstl:if>
+	
+	<acme:form-password code="authenticated.employer.application.form.label.cc" path="cc"/>
 	
 	
 	<acme:form-hidden path="id"/>
