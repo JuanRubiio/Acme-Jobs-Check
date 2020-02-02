@@ -56,7 +56,7 @@ public class WorkerApplicationListService implements AbstractListService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "answerWorker", "keyPass", "worker", "contieneMolet");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "answerWorker", "_key", "worker", "contieneMolet");
 
 	}
 

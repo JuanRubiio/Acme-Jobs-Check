@@ -61,7 +61,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker", "keyPass", "contieneMolet");
+		request.bind(entity, errors, "moment", "status", "messageRejected", "lastUpdate", "answerWorker", "_key", "contieneMolet");
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		String answerWorker = "";
 		res.setAnswerWorker(answerWorker);
 		String key = "";
-		res.setKeyPass(key);
+		res.set_key(key);
 		Boolean contieneMolet = false;
 		res.setContieneMolet(contieneMolet);
 		return res;

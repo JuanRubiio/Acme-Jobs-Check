@@ -26,10 +26,10 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `_key` varchar(255),
         `answer_worker` varchar(255),
         `cc` varchar(255),
         `contiene_molet` bit,
-        `key_pass` varchar(255),
         `last_update` datetime(6),
         `message_rejected` varchar(255),
         `moment` datetime(6),
@@ -242,7 +242,7 @@
     create table `molet` (
        `id` integer not null,
         `version` integer not null,
-        `key_at` varchar(255),
+        `_key` varchar(255),
         `text` varchar(255),
         `job_id` integer not null,
         primary key (`id`)

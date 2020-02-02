@@ -59,7 +59,7 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 				entity.setContieneMolet(true);
 			}
 		}
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass", "cc", "contieneMolet");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "_key", "cc", "contieneMolet");
 	}
 
 	@Override

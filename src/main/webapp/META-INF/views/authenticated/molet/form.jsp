@@ -5,7 +5,7 @@
 <acme:form readonly="${finalMode}">
 	
 	<acme:form-textbox code="authenticated.employer.molet.form.label.text" path="text"/>
-	<acme:form-url code="authenticated.employer.molet.form.label.key" path="keyAt"/>
+	<acme:form-url code="authenticated.employer.molet.form.label.key" path="_key"/>
 	
 
 	<acme:form-return code="authenticated.employer.molet.form.button.return"/>

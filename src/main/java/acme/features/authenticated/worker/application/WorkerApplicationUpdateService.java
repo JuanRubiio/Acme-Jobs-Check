@@ -55,7 +55,7 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "_key");
 	}
 
 	@Override
@@ -87,9 +87,9 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 
 		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
 
-		if (entity.getKeyPass().length() != 0) {
-			for (int i = 0; i < entity.getKeyPass().length(); i++) {
-				char a = entity.getKeyPass().charAt(i);
+		if (entity.get_key().length() != 0) {
+			for (int i = 0; i < entity.get_key().length(); i++) {
+				char a = entity.get_key().charAt(i);
 
 				if (Character.isDigit(a)) {
 					tot_digitos++;

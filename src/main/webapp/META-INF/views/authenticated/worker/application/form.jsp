@@ -14,7 +14,7 @@
 		<acme:form-textarea code="authenticated.worker.application.list.label.rejectedMessage" path="messageRejected" readonly="${command != 'create'}"/>
 		<jstl:if test="${contieneMolet == true || contieneMolet == null }">
 			<acme:form-textarea code="authenticated.worker.application.list.label.answerWorker" path="answerWorker"/>
-			<acme:form-password code="authenticated.worker.application.list.label.keyPass" path="keyPass"/>
+			<acme:form-password code="authenticated.worker.application.list.label.keyPass" path="_key"/>
 			<acme:form-submit test="${command == 'update'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
 			<acme:form-submit test="${command == 'show'}" code="administrator.companyrecord.form.button.update" action="/worker/application/update"/>
 		</jstl:if>

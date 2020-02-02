@@ -55,7 +55,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 				entity.setContieneMolet(true);
 			}
 		}
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "keyPass", "contieneMolet");
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "messageRejected", "worker", "answerWorker", "_key", "contieneMolet");
 	}
 
 	@Override

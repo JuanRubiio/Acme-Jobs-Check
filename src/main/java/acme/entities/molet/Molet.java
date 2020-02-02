@@ -30,7 +30,7 @@ public class Molet extends DomainEntity {
 	private String				text;
 
 	@URL
-	private String				keyAt;
+	private String				_key;
 
 	@NotNull
 	@Valid
